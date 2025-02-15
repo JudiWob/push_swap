@@ -13,9 +13,9 @@ stack *list_addlast(int data, stack **last, stack **head)
 	new =  list_newnode(data); //create new node
 	if(!new)
 		return (list_free(head), NULL);
-	(*last)->next = new;
-	new->prev = *last;
-	*last = new;
+	(*last)->next = new; //connect last to new
+	new->prev = *last; //connect new to last
+	*last = new; //update last node 
 	return *last;
 
 }
