@@ -9,10 +9,10 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
-	// if (argc == 2)
-	// {
-	// 	argv = f_split(*argv);
-	// }
+	if (argc == 2)
+	{
+		argv = f_split(argv[1], &argc);
+	}
 
 	if(!createstack(argc, argv))
 		return (printf("fail createstack"), -1);
@@ -22,5 +22,4 @@ int main(int argc, char **argv)
 /*
 take integers
 convert char into integers
-
 */
