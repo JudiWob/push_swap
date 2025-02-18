@@ -4,20 +4,17 @@
 int main(int argc, char **argv)
 {	
 	if (argc < 2)
-	{
-		printf("%s", "No arguments");
-		return 0;
-	}
-
+		return (printf("%s", "No arguments"), 0);
 	if (argc == 2)
 	{
 		if(check_input(argv[1]) == 0)
 			return 0;
 		argv = f_split(argv[1], &argc);
+		if(!argv)
+			return(printf("fail to split"), 0);
 	}
-
 	if(!createstack(argc, argv))
-		return (printf("fail createstack\n"), -1);
+		return (printf("fail to create stack\n"), 0);
 	
 	return (1);
 }

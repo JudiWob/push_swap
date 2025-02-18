@@ -1,6 +1,35 @@
 #include "header.h"
 
-int make_word(char **split, char *s, int j)
+static int make_word(char **split, char *s, int j, int *i);
+static int count_words(char *s);
+
+char **f_split(char *s, int *argc)
+{
+	int i;
+	int j;
+	char **split;
+
+	i = 0;
+	j = 1;
+	*argc = count_words(s) + 1; //+1 for programm name
+	split = malloc(sizeof(char*) * ((*argc) + 1));
+	if(!split)
+		return (NULL);
+	split[0] = NULL;//index 0 is programm Name, will be skipped later
+	while(s[i])
+	{
+		if(s[i] != ' ' && (s[i-1] == ' ' || i == 0))
+		{
+			if (make_word(split, &s[i], j, &i) == 0)
+				return (NULL);
+			j++;
+		}
+		i++;
+	}
+	return(split[(*argc)] = NULL, split);
+}
+
+static int make_word(char **split, char *s, int j, int *i)
 {
 	int len;
 	int temp;
@@ -9,22 +38,20 @@ int make_word(char **split, char *s, int j)
 	temp = 0;
 	while (s[len] && s[len] != ' ')
 		len++;
-	//printf("%i\n", j);
 	split[j] = malloc(sizeof(char) * (len + 1));
     if (!split[j])
-        return -1;
+        return (0);
 	while (temp < len)
 	{
-		//printf("%c\n",s[temp]);
 		split[j][temp] = s[temp];
 		temp++;
 	}
 	split[j][len] = '\0';
-	//printf("%i = %s \n", j, split[j]);
+	*i = *i + len; 
 	return (len);
 }
 
-int count_words(char *s)
+static int count_words(char *s)
 {
 	int i;
 	int count;
@@ -40,33 +67,6 @@ int count_words(char *s)
 	return (count);
 }
 
-char **f_split(char *s, int *argc)
-{
-	int i;
-	int j;
-	char **split;
-
-	i = 0;
-	j = 1;
-	*argc = count_words(s) + 1; //+1 for programm name
-	split = malloc(sizeof(char*) * ((*argc) + 1));
-	if(!split)
-		return (NULL);
-	split[0] = NULL;//index 0 is programm Name, will be skipped
-	while(s[i])
-	{
-		if(s[i] != ' ' && (s[i-1] == ' ' || i == 0))
-		{
-			i = i + make_word(split, &s[i], j);
-			if(!split)
-				return(NULL);
-			j++;
-		}
-		i++;
-	}
-	split[(*argc)] = NULL;
-	return(split);
-}
 
 //int main()
 //{
