@@ -1,7 +1,8 @@
 #include "header.h"
 
-static int make_word(char **split, char *s, int j, int *i);
-static int count_words(char *s);
+static int	make_word(char **split, char *s, int j, int *i);
+static int	count_words(char *s);
+void 		freesplit(char **split, int j);
 
 char **f_split(char *s, int *argc)
 {
@@ -39,8 +40,8 @@ static int make_word(char **split, char *s, int j, int *i)
 	while (s[len] && s[len] != ' ')
 		len++;
 	split[j] = malloc(sizeof(char) * (len + 1));
-    if (!split[j])
-        return (0);
+	if (!split[j])
+        return (freesplit(split, j), 0);
 	while (temp < len)
 	{
 		split[j][temp] = s[temp];
@@ -67,20 +68,31 @@ static int count_words(char *s)
 	return (count);
 }
 
+void freesplit(char **split, int j)
+{
+	while( j >= 0)
+	{
+		free(split[j]);
+		j--;
+	}
+	free(split);
+	split = NULL;
+}
 
-//int main()
-//{
-//	char *s = " Hallo Hey Hhhhey wie gehts dir?";
-//	char **split;
-//	int argc = 0;
-//	int j = 0;
+// int main()
+// {
+// 	char *s = " Hallo Hey Hhhhey wie gehts dir?";
+// 	char **split;
+// 	int argc = 0;
+// 	int j = 0;
 
-//	split = f_split(s, &argc);
-//	printf("%i\n", argc);
+// 	split = f_split(s, &argc);
+// 	printf("%i\n", argc);
 	
-//	while(j < argc + 1)
-//	{
-//		printf("%i = %s \n", j, split[j]);
-//		j++;
-//	}
-//}
+// 	//freesplit(split, argc);
+// 	while(j < argc + 1)
+// 	{
+// 		printf("%i = %s \n", j, split[j]);
+// 		j++;
+// 	}
+// }

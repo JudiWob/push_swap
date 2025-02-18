@@ -1,6 +1,8 @@
 #include "header.h"
 #include <stdio.h>
 
+void freeargv(char ***argv, int argc);
+
 int main(int argc, char **argv)
 {	
 	if (argc < 2)
@@ -10,6 +12,7 @@ int main(int argc, char **argv)
 		if(check_input(argv[1]) == 0)
 			return 0;
 		argv = f_split(argv[1], &argc);
+		freeargv(&argv, argc);
 		if(!argv)
 			return(printf("fail to split"), 0);
 	}
@@ -32,6 +35,18 @@ int check_input(char *s)
 			return (0);
 	}
 	return (1);
+}
+
+
+void freeargv(char ***argv, int argc)
+{
+	while(argc > 0)
+	{
+		free((*argv)[argc - 1]);
+		argc--;
+	}
+	free(*argv);
+	*argv = NULL;
 }
 /*
 take integers

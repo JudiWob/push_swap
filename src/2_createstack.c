@@ -26,14 +26,14 @@ stack *createstack(int argc, char **argv)
 			return (NULL); //false character
 		last = list_addlast(data, &last, &head);
 		if(!last)
-			return (NULL); //malloc fail
+			return (list_free(&head), NULL); //malloc fail
 	}
 
 	//tests
 	test_print_from_head(head);
 	printf("------------------------\n");
 	test_print_from_last(last);
-	//list_free(&head);
+	list_free(&head);
 
 	return head;
 }
