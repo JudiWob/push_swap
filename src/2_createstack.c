@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   B_createstack.c                                    :+:      :+:    :+:   */
+/*   2_createstack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:21:27 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/15 21:24:23 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/02/18 14:08:56 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@ stack *createstack(int argc, char **argv)
 	{
 		argv++;
 		argc--;
-		data = f_atoi(*argv);
+		if(f_atoi(*argv, &data) == 0) 
+			return (NULL); //false character
 		last = list_addlast(data, &last, &head);
 		if(!last)
-			return (NULL);
+			return (NULL); //malloc fail
 	}
 
 	//tests
 	test_print_from_head(head);
 	printf("------------------------\n");
 	test_print_from_last(last);
-	list_free(&head);
+	//list_free(&head);
 
 	return head;
 }

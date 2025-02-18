@@ -7,7 +7,10 @@ typedef struct stack{
 	struct stack	*prev;
 } stack;
 
-int f_atoi(const char *s);
+
+//input
+int f_atoi(const char *s, int *data);
+char **f_split(char *s, int *argc);
 
 //stack
 stack *createstack(int argc, char **argv);
@@ -18,3 +21,4 @@ void list_free(stack **head);
 //test
 void test_print_from_last(stack *last);
 void test_print_from_head(stack *head);
+int check_input(char *s);

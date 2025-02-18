@@ -1,15 +1,13 @@
 #include "header.h"
 
-int f_atoi(const char *s)
+int f_atoi(const char *s, int *data)
 {
 	int i;
-	int num;
 	int sign;
 
 	sign = 1;
-	num = 0;
+	*data = 0;
 	i = 0;
-
 	while (s[i])
 	{
 		if(s[i] == '-')
@@ -18,12 +16,15 @@ int f_atoi(const char *s)
 			i++;
 		}	
 		if(s[i] < '0' || s[i] > '9')
-			return (-1);
-		num = (num * 10) + (s[i] - 48);
+		{
+			printf("false character\n");
+			return (0);
+		}	
+		*data = ((*data) * 10) + (s[i] - 48);
 		i++;
 	}
-
-	return (sign * num);
+	*data = *data * sign;
+	return (1);
 }
 
 //int main()
