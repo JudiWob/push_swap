@@ -18,6 +18,9 @@ stack *list_newnode(int data);
 stack *list_addlast(int data, stack **last, stack **head);
 void list_free(stack **head);
 
+//sort
+void sort(stack *head_a, int argc);
+
 //test
 void test_print_from_last(stack *last);
 void test_print_from_head(stack *head);

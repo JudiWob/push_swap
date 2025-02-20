@@ -19,7 +19,7 @@ CFLAGS  := -Wall -Wextra -Werror
 NAME    := pushswap
 
 # Source and Object Files
-SRCS    := $(wildcard $(SRCDIR)/*.c)
+SRCS    := $(wildcard $(SRCDIR)/*.c) 
 OBJS    := $(SRCS:.c=.o)
 
 # Rules

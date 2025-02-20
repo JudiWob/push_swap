@@ -6,7 +6,7 @@
 /*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:21:27 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/18 14:08:56 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/18 18:41:53 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 stack *createstack(int argc, char **argv)
 {
 	int data;
-	stack *head = NULL;
-	stack *last = NULL;
+	stack *head_a = NULL;
+	stack *last_a = NULL;
+	int objects = argc;
 	
 	while(argc > 1)
 	{
@@ -24,16 +25,18 @@ stack *createstack(int argc, char **argv)
 		argc--;
 		if(f_atoi(*argv, &data) == 0) 
 			return (NULL); //false character
-		last = list_addlast(data, &last, &head);
-		if(!last)
-			return (list_free(&head), NULL); //malloc fail
+		last_a = list_addlast(data, &last_a, &head_a);
+		if(!last_a)
+			return (list_free(&head_a), NULL); //malloc fail
 	}
+	
+	
 
 	//tests
-	test_print_from_head(head);
-	printf("------------------------\n");
-	test_print_from_last(last);
-	list_free(&head);
+	//test_print_from_head(head_a);
+	//printf("------------------------\n");
+	//test_print_from_last(last_a);
+	//list_free(&head_a);
 
-	return head;
+	return head_a;
 }
