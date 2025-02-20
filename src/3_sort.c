@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   3_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 18:34:21 by tsuno             #+#    #+#             */
-/*   Updated: 2025/02/18 20:03:12 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/20 19:04:52 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void sort(stack *head_a, int argc)
 {
-	if(argc == 3)
+	if(argc == 2)
 	{
 		if(head_a->data > head_a->next->data)
 			swap(head_a);
