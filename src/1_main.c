@@ -18,9 +18,9 @@ int main(int argc, char **argv)
 	head_a = createstack(argc, argv);
 	if (!head_a)
 		return (printf("fail to create stack\n"), 0);
-	sort(head_a, argc);
+	sort(head_a, (argc - 1));
 	test_print_from_head(head_a);
-	freeargv(&argv, argc);
+	//freeargv(&argv, argc);
 	return (1);
 }
 

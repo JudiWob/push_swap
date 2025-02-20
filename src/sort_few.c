@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_sort.c                                           :+:      :+:    :+:   */
+/*   sort_few.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 18:34:21 by tsuno             #+#    #+#             */
-/*   Updated: 2025/02/20 21:47:59 by jpaselt          ###   ########.fr       */
+/*   Created: 2025/02/20 21:38:29 by jpaselt           #+#    #+#             */
+/*   Updated: 2025/02/20 21:49:15 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void sort(stack *head_a, int argc)
+//sort few
+
+void sort_two(stack *head_a)
 {
-	if(argc == 2) //sort 2 numbers
-		sort_two(head_a);
-
-	if(argc == 3) //sort 3 numbers
-		//sort_three(head_a);
-	return;
-	
-
-	//need code if argc is only 1
-	//if(argc == 4)
+	if(head_a->data > head_a->next->data)
+			sx_swap(head_a, 'a');
 }
+
+// void sort_three(stack *head_a)
+// {
+ 
+// }

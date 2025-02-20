@@ -20,6 +20,9 @@ void list_free(stack **head);
 
 //sort
 void sort(stack *head_a, int argc);
+void sort_two(stack *head_a);
+//void sort_three(stack *head_a);
+void sx_swap(stack *head, char x);
 
 //test
 void test_print_from_last(stack *last);

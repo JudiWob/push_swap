@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   o_swap.c                                           :+:      :+:    :+:   */
+/*   s__sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:57:33 by tsuno             #+#    #+#             */
-/*   Updated: 2025/02/18 20:34:17 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/20 21:52:01 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void swap_a(stack *head_a)
+//s__sort
+
+void sx_swap(stack *head, char x)
 {
-	if (!head_a || !head_a || !head_a->next) // Check if swap is possible
+	if (!head || !head || !head->next) // Check if swap is possible
         return;
-	
-	stack *temp;
-	
-	
-	temp = head_a->next;
-	
-	head_a->prev = temp;
-	head_a->next = NULL;
-	
-	temp->next = head_a;
-	temp->prev = NULL;
-	
-	return head_a;
-	
+	int temp;
+	temp = head->data;
+	head->data = head->next->data;
+	head->next->data = temp;
+	if(x == 'a')
+		printf("sa\n");
+	else
+		printf("sb\n");
+	//only for testing(delete later):
+	test_print_from_head(head);
+	// 
+	exit (0);
 }
+

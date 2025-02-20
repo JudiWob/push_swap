@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:21:27 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/20 19:14:33 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/02/20 21:20:35 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ stack *createstack(int argc, char **argv)
 	int data;
 	stack *head_a = NULL;
 	stack *last_a = NULL;
-	int objects = argc;
+	//int objects = argc;
 	
 	while(argc > 1)
 	{
