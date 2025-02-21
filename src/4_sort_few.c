@@ -14,13 +14,32 @@
 
 //sort few
 
-void sort_two(stack *head_a)
+void sort_two(stack *head)
 {
-	if(head_a->data > head_a->next->data)
-			sx_swap(head_a, 'a');
+	if(head->data > head->next->data)
+			swap_one(head, 'a');
+	return;
 }
 
-// void sort_three(stack *head_a)
+// void sort_three(stack *head)
 // {
- 
+//     if (head->data > head->next->data && head->data > head->next->next->data) // Largest Element at top (645 und 654)
+//     {
+//         ra_left(head, 'a'); //becomes 456 oder 
+//         if (head->data > head->next->data) //546
+//             swap_one(head, 'a'); // becomes 456
+//     }
+//     else if (head->next->data > head->data 
+// 	&& head->next->data > head->next->next->data) // Largest Element at in middle (564 und 465)
+//     {
+//         rra_right(head, 'a'); // becomes 456 oder
+//         if (head->data < head->next->next->data) //546
+//             swap_one(head, 'a'); // becomes 456
+//     }
+//     else if (head->data > head->next->data) // Largest Element at bottom (456 und 546)
+//     {
+//     	swap_one(head, 'a');
+//     }
+// 	return;
 // }
+

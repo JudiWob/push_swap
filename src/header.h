@@ -7,10 +7,14 @@ typedef struct stack{
 	struct stack	*prev;
 } stack;
 
+#define EXIT_FAILURE 1
+#define EXIT_SUCCESS 0
 
 //input
+char **split_input(int *argc, char **argv);
 int f_atoi(const char *s, int *data);
 char **f_split(char *s, int *argc);
+void clean_exit(char ***argv, int argc, stack *head_a);
 
 //stack
 stack *createstack(int argc, char **argv);
@@ -22,9 +26,9 @@ void list_free(stack **head);
 void sort(stack *head_a, int argc);
 void sort_two(stack *head_a);
 //void sort_three(stack *head_a);
-void sx_swap(stack *head, char x);
+void swap_one(stack *head, char x);
 
 //test
 void test_print_from_last(stack *last);
 void test_print_from_head(stack *head);
-int check_input(char *s);
+//int check_input(char *s);

@@ -12,9 +12,9 @@
 
 #include "header.h"
 
-//s__sort
+//s operations
 
-void sx_swap(stack *head, char x)
+void swap_one(stack *head, char x)
 {
 	if (!head || !head || !head->next) // Check if swap is possible
         return;
@@ -29,6 +29,7 @@ void sx_swap(stack *head, char x)
 	//only for testing(delete later):
 	test_print_from_head(head);
 	// 
-	exit (0);
+	//exit (0);
+	return;
 }
 
