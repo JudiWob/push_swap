@@ -4,17 +4,15 @@
 
 int main(int argc, char **argv)
 {	
-
 	stack *head_a;
 
-	
 	argv = split_input(&argc, argv);
-	//printf("TEST2\n");
 	head_a = createstack(argc, argv);
-
 	sort(head_a, (argc - 1));
-	//test_print_from_head(head_a);
-	//freeargv(&argv, argc);
+//	test_print_from_head(head_a);
+
+	list_free(&head_a);
+	freeargv(&argv, argc);
 	return (1);
 }
 
@@ -38,18 +36,3 @@ int main(int argc, char **argv)
 // 	return (1);
 // }
 
-
-// void freeargv(char ***argv, int argc)
-// {
-// 	while(argc > 0)
-// 	{
-// 		free((*argv)[argc - 1]);
-// 		argc--;
-// 	}
-// 	free(*argv);
-// 	*argv = NULL;
-// }
-/*
-take integers
-convert char into integers
-*/

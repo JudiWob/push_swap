@@ -28,6 +28,9 @@ void sort_two(stack *head_a);
 //void sort_three(stack *head_a);
 void swap_one(stack *head, char x);
 
+//clean
+void freeargv(char ***argv, int argc);
+
 //test
 void test_print_from_last(stack *last);
 void test_print_from_head(stack *head);

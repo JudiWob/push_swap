@@ -24,5 +24,4 @@ void list_free(stack **head)
 		free(*head);
 		*head = temp;
 	}
-		
 }
