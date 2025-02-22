@@ -1,15 +1,14 @@
 #include "header.h"
 
 //free functions
-void 	clean_exit_fail(char ***argv, int argc, stack *head_a);
+void 	clean_exit_fail(char ***argv, int argc, stack *head_a, int success);
 void 	freeargv(char ***argv, int argc);
 void	list_free(stack **head);
 
-void clean_exit_fail(char ***argv, int argc, stack *head_a)
+void clean_exit(char ***argv, int argc, stack *head_a,int success)
 {
 	if((*argv)[0] == NULL) //input was splitted == argv was allocated
 	{
-		//*argv = *argv - argc + 1; //go back to argv[]
 		while(argc >= 0)
 		{				
 			free((*argv)[argc]);
@@ -19,25 +18,10 @@ void clean_exit_fail(char ***argv, int argc, stack *head_a)
 		*argv = NULL;
 	}
 	list_free(&head_a);
-	printf("Exit Fail\n");
+	if(success == 0)
+		(EXIT_SUCCESS);
+	else
 	exit (EXIT_FAILURE);
-}
-
-void clean_exit_success(char ***argv, int argc, stack *head_a)
-{
-	if((*argv)[0] == NULL) //input was splitted == argv was allocated
-	{
-		while(argc > 0)
-		{
-			free((*argv)[argc - 1]);
-			argc--;
-		}
-		free(*argv);
-		*argv = NULL;
-	}
-	list_free(&head_a);
-	printf("Exit Success\n");
-	exit (EXIT_SUCCESS);
 }
 
 void list_free(stack **head)

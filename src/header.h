@@ -19,8 +19,7 @@ typedef struct stack{
 char	**prep_input(int *argc, char **argv);
 int		f_atoi(const char *s, int *data);
 char	**f_split(char *s, int *argc);
-void	clean_exit_fail(char ***argv, int argc, stack *head_a);
-void	clean_exit_success(char ***argv, int argc, stack *head_a);
+void	clean_exit(char ***argv, int argc, stack *head_a, int success);
 char	*check_doubles(stack *head_a);
 
 //stack

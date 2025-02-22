@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	sort(head_a, (argc - 1));
 //	test_print_from_head(head_a);
 
-	clean_exit_success(&argv, argc, head_a);
+	clean_exit(&argv, argc, head_a, 0);
 
 }
 
