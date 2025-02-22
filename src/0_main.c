@@ -9,10 +9,8 @@ int main(int argc, char **argv)
 	argv = prep_input(&argc, argv);
 	head_a = createstack(argc, argv);
 	sort(head_a, (argc - 1));
-//	test_print_from_head(head_a);
-
+test_print_from_head(head_a);
 	clean_exit(&argv, argc, head_a, 0);
-
 }
 
 

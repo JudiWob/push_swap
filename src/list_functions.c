@@ -41,6 +41,7 @@ stack	*list_addlast(int data, stack **last, stack **head)
 /// ////////////////////////////////////////////
 void	test_print_from_head(stack *head)
 {
+	printf("From Head: ");
 	while(head)
 	{
 		printf("%d ", head->data);
@@ -51,12 +52,13 @@ void	test_print_from_head(stack *head)
 
 void	test_print_from_last(stack *last)
 {
-	printf("testlast\n");
+	printf("From Last: ");
 	
 	while (last)
 	{
-		printf("Last: %d\n", last->data);
+		printf("%d ", last->data);
 		last = last->prev;
 	}
+	printf("\n");
 	return;
 }

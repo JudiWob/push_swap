@@ -14,14 +14,14 @@ char	**prep_input(int *argc, char **argv)
 	}	
 	if (*argc == 2)
 	{
-		argv = f_split(argv[1], argc);
-		if(!argv)
+		argv = f_split(argv[1], argc);	//split argv[1]
+		if(!argv)						//exit: malloc failure while f_split
 		{
 			printf("fail to split\n");
 			exit(EXIT_FAILURE);
 		}
 	}
-	return(argv);
+	return(argv); //argv is split now
 }
 
 int	f_atoi(const char *s, int *data)

@@ -28,14 +28,15 @@ stack	*createstack(int argc, char **argv)
 	{
 		argv++;
 		argc--;
-		if(f_atoi(*argv, &data) == -1) //convert char to int
-			clean_exit(&original_argv, argc, head_a, -1); //false character
-		last_a = list_addlast(data, &last_a, &head_a); //make node ant store int
+		if(f_atoi(*argv, &data) == -1) 						//convert char *argv to int data
+			clean_exit(&original_argv, argc, head_a, -1); 	//exit: false character
+		last_a = list_addlast(data, &last_a, &head_a); 		//make node and store data
 //		last_a = NULL;
 		if(!last_a)
-			clean_exit(&original_argv, argc, head_a, -1); //malloc fail
+			clean_exit(&original_argv, argc, head_a, -1); 	//exit: malloc fail making node
 	}
 	if(!check_doubles(head_a))
-		clean_exit(&original_argv, argc, head_a, -1); //doubles
+		clean_exit(&original_argv, argc, head_a, -1);		//exit:doubles
+test_print_from_last(last_a);
 	return head_a;
 }
