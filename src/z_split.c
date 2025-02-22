@@ -1,12 +1,12 @@
 #include "header.h"
 
 //f_split
-static int	make_word(char **split, char *s, int j, int *i);
+char		**f_split(char *s, int *argc);
 static int	count_words(char *s);
-void		freesplit(char **split, int j);
-void 		freesplit(char **split, int j);
+static int	make_word(char **split, char *s, int j, int *i);
+static void	freesplit(char **split, int j);
 
-char **f_split(char *s, int *argc)
+char	**f_split(char *s, int *argc)
 {
 	int i;
 	int j;
@@ -32,7 +32,7 @@ char **f_split(char *s, int *argc)
 	return(split[(*argc)] = NULL, split);
 }
 
-static int make_word(char **split, char *s, int j, int *i)
+static int	make_word(char **split, char *s, int j, int *i)
 {
 	int len;
 	int temp;
@@ -54,7 +54,7 @@ static int make_word(char **split, char *s, int j, int *i)
 	return (len);
 }
 
-static int count_words(char *s)
+static int	count_words(char *s)
 {
 	int i;
 	int count;
@@ -70,7 +70,7 @@ static int count_words(char *s)
 	return (count);
 }
 
-void freesplit(char **split, int j)
+void	freesplit(char **split, int j)
 {
 	while( j >= 0)
 	{

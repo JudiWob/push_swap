@@ -13,9 +13,9 @@
 #include "header.h"
 
 //create stack
-stack *createstack(int argc, char **argv);
+stack	*createstack(int argc, char **argv);
 
-stack *createstack(int argc, char **argv)
+stack	*createstack(int argc, char **argv)
 {
 	int 	data;
 	stack 	*head_a;
@@ -39,12 +39,3 @@ stack *createstack(int argc, char **argv)
 		clean_exit(&original_argv, argc, head_a, -1); //doubles
 	return head_a;
 }
-
-
-// char **original_argv;
-// original_argv = argv; 
-// if (!head_a && !original_argv)
-// {
-// 	printf("2. all free\n");
-// 	exit(EXIT_FAILURE);
-// }

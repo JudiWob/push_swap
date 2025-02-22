@@ -16,7 +16,7 @@
 void	sort_two(stack *head);
 void	sort_three(stack *head);
 
-void sort_two(stack *head)
+void	sort_two(stack *head)
 {
 	if(head->data > head->next->data)
 			swap_one(head, 'a');

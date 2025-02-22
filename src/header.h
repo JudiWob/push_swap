@@ -1,7 +1,6 @@
 #ifndef HEADER_H
 # define HEADER_H
 
-
 #include "../libft/libft.h"
 #include <stdio.h>
 
@@ -10,7 +9,6 @@ typedef struct stack{
 	struct stack	*next;
 	struct stack	*prev;
 } stack;
-
 
 #define EXIT_FAILURE 1
 #define EXIT_SUCCESS 0

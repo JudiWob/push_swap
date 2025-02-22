@@ -13,9 +13,9 @@
 #include "header.h"
 
 //swap operations
-void swap_one(stack *head, char x);
+void	swap_one(stack *head, char x);
 
-void swap_one(stack *head, char x)
+void	swap_one(stack *head, char x)
 {
 	if (!head || !head || !head->next) // Check if swap is possible
         return;

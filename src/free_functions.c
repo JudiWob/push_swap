@@ -4,7 +4,7 @@
 void 	clean_exit(char ***argv, int argc, stack *head_a, int success);
 void	list_free(stack **head);
 
-void clean_exit(char ***argv, int argc, stack *head_a,int success)
+void	clean_exit(char ***argv, int argc, stack *head_a,int success)
 {
 	if((*argv)[0] == NULL) //input was splitted == argv was allocated
 	{
@@ -23,7 +23,7 @@ void clean_exit(char ***argv, int argc, stack *head_a,int success)
 		{printf("exit failure\n");exit(EXIT_SUCCESS);}
 }
 
-void list_free(stack **head)
+void	list_free(stack **head)
 {
 	stack *temp;
 

@@ -1,10 +1,10 @@
 #include "header.h"
 
 //list functions
-stack *list_newnode(int data);
-stack *list_addlast(int data, stack **last, stack **head);
+stack	*list_newnode(int data);
+stack	*list_addlast(int data, stack **last, stack **head);
 
-stack *list_newnode(int data)
+stack	*list_newnode(int data)
 {
 	stack *new;
 
@@ -17,7 +17,7 @@ stack *list_newnode(int data)
 	return new;
 }
 
-stack *list_addlast(int data, stack **last, stack **head)
+stack	*list_addlast(int data, stack **last, stack **head)
 {
 	stack *new;
 	
@@ -39,7 +39,7 @@ stack *list_addlast(int data, stack **last, stack **head)
 
 
 /// ////////////////////////////////////////////
-void test_print_from_head(stack *head)
+void	test_print_from_head(stack *head)
 {
 	while(head)
 	{
@@ -49,7 +49,7 @@ void test_print_from_head(stack *head)
 	printf("\n");
 }
 
-void test_print_from_last(stack *last)
+void	test_print_from_last(stack *last)
 {
 	printf("testlast\n");
 	

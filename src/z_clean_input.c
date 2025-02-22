@@ -5,7 +5,7 @@ char	**prep_input(int *argc, char **argv);
 int		f_atoi(const char *s, int *data);
 char	*check_doubles(stack *head_a);
 
-char **prep_input(int *argc, char **argv)
+char	**prep_input(int *argc, char **argv)
 {
 	if (*argc < 2)
 	{
@@ -24,7 +24,7 @@ char **prep_input(int *argc, char **argv)
 	return(argv);
 }
 
-int f_atoi(const char *s, int *data)
+int	f_atoi(const char *s, int *data)
 {
 	int i;
 	int sign;
@@ -51,7 +51,7 @@ int f_atoi(const char *s, int *data)
 	return (1);
 }
 
-char *check_doubles(stack *head_a)
+char	*check_doubles(stack *head_a)
 {
 	stack *temp;
 	stack *go;
