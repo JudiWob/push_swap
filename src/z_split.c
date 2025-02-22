@@ -1,12 +1,10 @@
 #include "header.h"
 
-
-
-//#include "header.h"
-
+//f_split
 static int	make_word(char **split, char *s, int j, int *i);
 static int	count_words(char *s);
 void		freesplit(char **split, int j);
+void 		freesplit(char **split, int j);
 
 char **f_split(char *s, int *argc)
 {

@@ -16,7 +16,7 @@ CC			= gcc
 
 FLAGS		= -Wall -Wextra -Werror
 
-SOURCES		= 	ft_atoi.c 
+SOURCES		= 	ft_atoi.c  list_addlast.c
 
 
 BONUS_OBJS	= $(BONUS:.c=.o)

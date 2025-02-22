@@ -13,6 +13,8 @@
 #include "header.h"
 
 //sort few
+void	sort_two(stack *head);
+void	sort_three(stack *head);
 
 void sort_two(stack *head)
 {

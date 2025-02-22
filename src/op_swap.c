@@ -12,7 +12,8 @@
 
 #include "header.h"
 
-//s operations
+//swap operations
+void swap_one(stack *head, char x);
 
 void swap_one(stack *head, char x)
 {
