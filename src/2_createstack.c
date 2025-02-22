@@ -28,7 +28,7 @@ stack *createstack(int argc, char **argv)
 	{
 		argv++;
 		argc--;
-		if(f_atoi(*argv, &data) == 0) //convert char to int
+		if(f_atoi(*argv, &data) == -1) //convert char to int
 			clean_exit(&original_argv, argc, head_a, -1); //false character
 		last_a = list_addlast(data, &last_a, &head_a); //make node ant store int
 //		last_a = NULL;

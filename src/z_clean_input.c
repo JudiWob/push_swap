@@ -42,7 +42,7 @@ int f_atoi(const char *s, int *data)
 		if(s[i] < '0' || s[i] > '9')
 		{
 			printf("false character\n");
-			return (0);
+			return (-1);
 		}	
 		*data = ((*data) * 10) + (s[i] - 48);
 		i++;

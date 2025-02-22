@@ -1,8 +1,7 @@
 #include "header.h"
 
 //free functions
-void 	clean_exit_fail(char ***argv, int argc, stack *head_a, int success);
-void 	freeargv(char ***argv, int argc);
+void 	clean_exit(char ***argv, int argc, stack *head_a, int success);
 void	list_free(stack **head);
 
 void clean_exit(char ***argv, int argc, stack *head_a,int success)
@@ -19,9 +18,9 @@ void clean_exit(char ***argv, int argc, stack *head_a,int success)
 	}
 	list_free(&head_a);
 	if(success == 0)
-		(EXIT_SUCCESS);
+		{printf("exit success\n");exit(EXIT_SUCCESS);}
 	else
-	exit (EXIT_FAILURE);
+		{printf("exit failure\n");exit(EXIT_SUCCESS);}
 }
 
 void list_free(stack **head)
