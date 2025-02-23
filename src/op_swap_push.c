@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-//swap operations
+//push and swap operations
 void	swap_sx(stack *head, char x);
 void	swap_ss(stack *head_a, stack *head_b);
 void	push_px(stack **head_take, stack **head_put, char c);

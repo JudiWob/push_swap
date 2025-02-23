@@ -3,6 +3,7 @@
 //rotate operations
 void ra_left(stack **head, char c);
 void rra_right(stack **head, char c);
+//void rrr_(stack **head_a, stack **head_b, char c);
 
 void ra_left(stack **head, char c)
 {
