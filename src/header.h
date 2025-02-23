@@ -16,29 +16,29 @@ typedef struct stack{
 //input
 char	**prep_input(int *argc, char **argv);
 char	**f_split(char *s, int *argc);
-int		f_atoi(const char *s, int *data);
 char	*check_doubles(stack *head_a);
+int		f_atoi(const char *s, int *data);
 
 //stack
 stack	*createstack(int argc, char **argv);
 stack	*list_newnode(int data);
 stack	*list_addlast(int data, stack **last, stack **head);
 stack 	*list_getlast(stack *head);
-int		findmax(stack *head);
-int		findmin(stack *head);
 
 //sort
 void	sort(stack **head_a, int argc);
 void	sort_two(stack *head_a);
 stack 	*sort_three(stack *head_a);
 stack 	*sort_four(stack *head_a, stack **head_b);
-void	push_px(stack **head_take, stack **head_put, char c);
 
 //operations
 void	swap_sx(stack *head, char x);
 void	swap_ss(stack *head_a, stack *head_b);
+void	push_px(stack **head_take, stack **head_put, char c);
 void	ra_left(stack **head, char c);
 void	rra_right(stack **head, char c);
+int		findmax(stack *head);
+int		findmin(stack *head);
 
 
 //clean
@@ -49,6 +49,5 @@ void	free_list(stack **head);
 //test
 void test_print_from_last(stack *last);
 void test_print_from_head(stack *head);
-//int check_input(char *s);
 
 #endif
