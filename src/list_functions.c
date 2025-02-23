@@ -3,6 +3,7 @@
 //list functions
 stack	*list_newnode(int data);
 stack	*list_addlast(int data, stack **last, stack **head);
+stack	*list_getlast(stack *head);
 
 stack	*list_newnode(int data)
 {
@@ -35,6 +36,17 @@ stack	*list_addlast(int data, stack **last, stack **head)
 	return *last;
 }
 
+stack *list_getlast(stack *head)
+{
+	stack *last;
+	
+	last = head;
+	while(last->next)
+	{
+		last = last->next;
+	}
+	return (last);
+}
 
 
 

@@ -21,7 +21,7 @@ char	**prep_input(int *argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 	}
-	return(argv); //argv is split now
+	return(argv); //argv is split now if argc==2, or nothing happend if argc>2
 }
 
 int	f_atoi(const char *s, int *data)
