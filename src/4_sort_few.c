@@ -76,5 +76,5 @@ stack	*sort_four(stack *head_a, stack **head_b)
 // test_print_from_last(list_getlast(*head_b));
 // printf("B:");
 // test_print_from_head(*head_b);
-//     return (head_a);
+     return (head_a);
 }

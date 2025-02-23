@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 // stack *last;
 // last = list_getlast(head_a);
 // //test_print_from_last(last);
-// test_print_from_head(head_a);
+test_print_from_head(head_a);
 
 // int pos;
 // pos = findmax(head_a);
