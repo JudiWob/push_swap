@@ -14,22 +14,97 @@
 
 //sort general
 void	sort(stack **head_a, int argc);
+stack 	*sort_big(stack *head_a, int argc);
 
 void	sort(stack **head_a, int argc)
 {
-	stack *head_b;
-	
-	head_b = NULL;
+//printf("sort\n");
 	if(argc == 2) //sort 2 numbers
 		sort_two(*head_a);
 	if(argc == 3) //sort 3 numbers
 		*head_a = sort_three(*head_a);
 	if(argc == 4)
-		*head_a = sort_four(*head_a, &head_b);
+		*head_a = sort_four(*head_a);
+	if(argc == 5)
+		*head_a = sort_five(*head_a);
+	if(argc > 5)
+	{
+//		printf("test\n");
+		*head_a = sort_big(*head_a, argc);
+	}	
 	
 	return;
-	
-
-	//need code if argc is only 1
-	//if(argc == 4)
 }
+
+stack 	*sort_big(stack *head_a, int argc)
+{
+//	stack *temp;
+	stack *head_b;
+//	int chunk;
+	int argb = 0;
+
+	head_b = NULL;
+
+			split_median_a(&head_a, &head_b, &argc, &argb);
+// printf("Median of A, if smaller, push to b\n");
+// printf("A:");
+// test_print_from_head(head_a);
+// printf("B:");
+// test_print_from_head(head_b);
+// printf("If A has < 5 Elements, sort manually\n");
+			sort(&head_a, argc);
+// printf("A after Sorting: ");
+// test_print_from_head(head_a);
+			while(argb > 5)
+				split_median_b(&head_a, &head_b, &argc, &argb);
+			sort(&head_b, argb);
+
+// printf("Median of B, if bigger, push to b\n");
+// printf("A:");
+// test_print_from_head(head_a);
+// printf("B:");
+// test_print_from_head(head_b);
+
+// printf("argc: %i\n", argc);
+// printf("argc: %i\n", argc);
+// printf("argb: %i\n", argb);
+//	push_back_three(&head_a, &head_b, &argc, &argb);
+
+printf("A:");
+test_print_from_head(head_a);
+printf("B:");
+test_print_from_head(head_b);
+
+	return (head_a);
+}
+
+void push_back_three(stack **head_a, stack **head_b, int *argc, int *argb)
+{
+	//int n = 0;
+	int p;
+	push_px(head_b, head_a, 'a');
+	push_px(head_b, head_a, 'a');
+printf("----------\n Inside Push Three\n");
+printf("A after 2x push to a:	");
+test_print_from_head(*head_a);
+printf("B after 2x push to a:	");
+test_print_from_head(*head_b);
+//printf("argc: %i\n", *argc);
+//printf("argb: %i\n", *argb);
+		if ((*head_a)->data > (*head_a)->next->data)
+		{
+			if((*head_b)->data < (*head_b)->next->data)
+				swap_ss((*head_a),(*head_b));
+			else
+				swap_sx(*head_a, 'a');
+		}
+		//push_px(head_b, head_a, 'a');
+
+
+printf("A after swapping:	");
+test_print_from_head(*head_a);
+printf("B after swapping:	");
+test_print_from_head(*head_b);	
+	p = *argc + *argb;
+}
+

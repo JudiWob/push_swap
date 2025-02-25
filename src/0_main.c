@@ -1,6 +1,8 @@
 #include "header.h"
 #include <stdio.h>
 
+//
+int		main(int argc, char **argv);
 
 int main(int argc, char **argv)
 {	
@@ -10,20 +12,16 @@ int main(int argc, char **argv)
 	sort(&head_a, (argc - 1));
 
 //TESTING
-// printf("MAIN TESTS\n");
-// stack *last;
-// last = list_getlast(head_a);
-// //test_print_from_last(last);
-test_print_from_head(head_a);
 
-// int pos;
-// pos = findmax(head_a);
-// printf("Pos Max %i\n", pos);
+//printf("MAIN TESTS\n");
+// test_print_from_last(list_getlast(head_a));
+//test_print_from_head(head_a);
+// printf("Pos Max %i\n", findmax(head_a));
 
-//TESTING
+//TESTING END
 
-	//free  head_a, 0);
-
+//	free_list (head_a);
+	free_exit(&argv, argc, head_a, 0);
 	return 0;
 }
 

@@ -14,6 +14,7 @@
 
 //create stack
 stack	*createstack(int argc, char **argv);
+void	free_exit(char ***argv, int argc, stack *head_a, int success);
 
 stack	*createstack(int argc, char **argv)
 {
@@ -28,7 +29,7 @@ stack	*createstack(int argc, char **argv)
 	{
 		argv++;
 		argc--;
-		if(f_atoi(*argv, &data) == -1) 						//convert char *argv to int data
+		if(!f_atoi(*argv, &data)) 						//convert char *argv to int data
 			free_exit(&original_argv, argc, head_a, -1); 	//exit: false character
 		last_a = list_addlast(data, &last_a, &head_a); 		//make node and store data
 //last_a = NULL;
@@ -37,7 +38,10 @@ stack	*createstack(int argc, char **argv)
 	}
 	if(!check_doubles(head_a))
 		free_exit(&original_argv, argc, head_a, -1);		//exit:doubles
+//	if(!check_sorting(head_a))								
+//		free_exit(&original_argv, argc, head_a, 1);			//exit:already sorted
+
 //test_print_from_last(last_a);
-	free_argv(&original_argv, argc);
+//	free_argv(&original_argv, argc);
 	return head_a;
 }

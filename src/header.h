@@ -13,13 +13,16 @@ typedef struct stack{
 #define EXIT_FAILURE 1
 #define EXIT_SUCCESS 0
 
+#define PRINT 0
+
 //input
 char	**prep_input(int *argc, char **argv);
 char	**f_split(char *s, int *argc);
-char	*check_doubles(stack *head_a);
-int		f_atoi(const char *s, int *data);
+char	*f_atoi(const char *s, int *data);
+char	*check_doubles(stack *head);
+char	*check_sorting(stack *head);
 
-//stack
+//stack/list
 stack	*createstack(int argc, char **argv);
 stack	*list_newnode(int data);
 stack	*list_addlast(int data, stack **last, stack **head);
@@ -29,7 +32,8 @@ stack 	*list_getlast(stack *head);
 void	sort(stack **head_a, int argc);
 void	sort_two(stack *head_a);
 stack 	*sort_three(stack *head_a);
-stack 	*sort_four(stack *head_a, stack **head_b);
+stack 	*sort_four(stack *head_a);
+stack 	*sort_five(stack *head_a);
 
 //operations
 void	swap_sx(stack *head, char x);
@@ -39,6 +43,12 @@ void	ra_left(stack **head, char c);
 void	rra_right(stack **head, char c);
 int		findmax(stack *head);
 int		findmin(stack *head);
+int		find_median(stack *head, int arg);
+void    mintotop(stack **head_a);
+void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
+void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb);
+void	push_back_three(stack **head_a, stack **head_b, int *argc, int *argb);
+
 
 
 //clean

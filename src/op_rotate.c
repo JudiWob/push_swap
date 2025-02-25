@@ -22,12 +22,8 @@ void ra_left(stack **head, char c)
     newlast->prev = last;
     newlast->next = NULL;
 
-// test_print_from_head(*head);
-
-    if(c == 'a')
-		printf("ra\n");
-	else
-		printf("rb\n");
+    if(PRINT)
+        printf("r%c\n", c);
 //test_print_from_last(newlast);
 //printf("%p\n", (*head)->prev);
     return;
@@ -51,9 +47,8 @@ void rra_right(stack **head, char c)
     *head = last;
 // last = list_getlast(*head);
 // test_print_from_last(last);
-    if(c == 'a')
-		printf("rra\n");
-	else
-		printf("rrb\n");
+    if(PRINT)
+        printf("r%c\n", c);
+    return;
 }
 

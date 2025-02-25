@@ -27,6 +27,7 @@ char	**f_split(char *s, int *argc)
 				return (NULL);
 			j++;
 		}
+		else
 		i++;
 	}
 	return(split[(*argc)] = NULL, split);

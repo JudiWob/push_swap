@@ -53,13 +53,19 @@ stack *list_getlast(stack *head)
 /// ////////////////////////////////////////////
 void	test_print_from_head(stack *head)
 {
-	printf("From Head: ");
-	while(head)
+	// if(head == NULL)
+	// 	printf(" NULL\n");
+	//else
 	{
-		printf("%d ", head->data);
-		head = head->next;
+		printf("From Head: ");
+		while(head)
+		{
+			printf("%d ", head->data);
+			head = head->next;
+		}
+		printf("\n");
 	}
-	printf("\n");
+	return;
 }
 
 void	test_print_from_last(stack *last)

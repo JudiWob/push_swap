@@ -15,7 +15,9 @@
 //sort few
 void	sort_two(stack *head);
 stack	*sort_three(stack *head);
-stack	*sort_four(stack *head_a, stack **head_b);
+stack	*sort_four(stack *head_a);
+stack	*sort_five(stack *head_a);
+void    mintotop(stack **head_a);
 
 void	sort_two(stack *head)
 {
@@ -46,22 +48,16 @@ stack *sort_three(stack *head)
 	return (head);
 }
 
-stack	*sort_four(stack *head_a, stack **head_b)
+stack	*sort_four(stack *head_a)
 {
-	int pos_min= findmin(head_a);
+	stack *head_b;
 
-	if (pos_min == 1)
-        swap_sx(head_a, 'a');
-    else if (pos_min == 2)
-    {
-		ra_left(&head_a, 'a');
-		ra_left(&head_a, 'a');
-	} 
-	else if (pos_min == 3)
-        rra_right(&head_a, 'a');
-	push_px(&head_a, head_b, 'a');
+    head_b = NULL;
+	mintotop(&head_a);
+	push_px(&head_a, &head_b, 'a');
     head_a = sort_three(head_a);// Now sort the top 3
-	push_px(head_b, &head_a, 'b');
+	push_px(&head_b, &head_a, 'b');
+    return (head_a);
     
 // printf("A:");
 // test_print_from_last(list_getlast(head_a));
@@ -76,5 +72,44 @@ stack	*sort_four(stack *head_a, stack **head_b)
 // test_print_from_last(list_getlast(*head_b));
 // printf("B:");
 // test_print_from_head(*head_b);
-     return (head_a);
+}
+
+stack	*sort_five(stack *head_a)
+{
+	stack *head_b;
+
+    head_b = NULL;
+//test_print_from_head(head_a);
+    mintotop(&head_a);
+	push_px(&head_a, &head_b, 'a');
+    mintotop(&head_a);
+    push_px(&head_a, &head_b, 'a');
+    head_a = sort_three(head_a);// Now sort the top 3
+	push_px(&head_b, &head_a, 'b');
+    push_px(&head_b, &head_a, 'b');
+    return (head_a);
+}
+
+void mintotop(stack **head_a)
+{
+    int indx_min;
+
+    indx_min = findmin(*head_a);
+//printf("Minimum %i\n", indx_min);
+    if (indx_min == 2)
+    {
+        swap_sx(*head_a, 'a');
+    }
+    else if (indx_min == 3)
+    {
+		ra_left(head_a, 'a');
+		ra_left(head_a, 'a');
+	} 
+    else if (indx_min > 3)
+    {
+        rra_right(head_a, 'a');
+        if(indx_min == 3)
+            rra_right(head_a, 'a');
+    }
+    return;
 }

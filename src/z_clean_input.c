@@ -2,8 +2,9 @@
 
 //clean input
 char	**prep_input(int *argc, char **argv);
-int		f_atoi(const char *s, int *data);
-char	*check_doubles(stack *head_a);
+char	*f_atoi(const char *s, int *data);
+char	*check_doubles(stack *head);
+char	*check_sorting(stack *head);
 
 char	**prep_input(int *argc, char **argv)
 {
@@ -24,7 +25,7 @@ char	**prep_input(int *argc, char **argv)
 	return(argv); //argv is split now if argc==2, or nothing happend if argc>2
 }
 
-int	f_atoi(const char *s, int *data)
+char	*f_atoi(const char *s, int *data)
 {
 	int i;
 	int sign;
@@ -42,37 +43,43 @@ int	f_atoi(const char *s, int *data)
 		if(s[i] < '0' || s[i] > '9')
 		{
 			printf("false character\n");
-			return (-1);
+			return (NULL);
 		}	
 		*data = ((*data) * 10) + (s[i] - 48);
 		i++;
 	}
 	*data = *data * sign;
-	return (1);
+	return ("ok");
 }
 
-char	*check_doubles(stack *head_a)
+char	*check_doubles(stack *head)
 {
 	stack *temp;
-	stack *go;
 
-	if(!head_a || !head_a->next)
+	if(!head || !head->next)
 		return NULL;
-	temp = head_a;
-	go = temp->next;
-	while(temp->next)
+	temp = head->next;
+	while(head->next)
 	{
-//		printf("temp %i\n", temp->data);
-		while(go)
+		while(temp)
 		{
-//			printf("go %i\n", go->data);
-			if(temp->data == go->data)
+			if(head->data == temp->data)
 				return (printf("Double!\n"), NULL);
-			go = go->next;
+			temp = temp->next;
 		}
-		go = temp->next->next;
-		temp = temp->next;
+		temp = head->next->next;
+		head = head->next;
 	}
 	return ("ok");
 }
 
+char	*check_sorting(stack *head)
+{
+	//stack *temp;
+	//stack *go;
+
+	if(!head || !head->next)
+		return NULL;
+	return ("ok");
+	
+}
