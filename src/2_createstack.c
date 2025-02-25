@@ -16,6 +16,7 @@
 stack	*createstack(int argc, char **argv);
 void	free_exit(char ***argv, int argc, stack *head_a, int success);
 
+
 stack	*createstack(int argc, char **argv)
 {
 	int 	data;
@@ -40,8 +41,56 @@ stack	*createstack(int argc, char **argv)
 		free_exit(&original_argv, argc, head_a, -1);		//exit:doubles
 //	if(!check_sorting(head_a))								
 //		free_exit(&original_argv, argc, head_a, 1);			//exit:already sorted
-
+	
 //test_print_from_last(last_a);
 //	free_argv(&original_argv, argc);
 	return head_a;
 }
+
+void indexing(stack *head, int argc)
+{
+    stack *temp;
+    stack *min_node;
+    int index;
+
+    index = 1;
+    while (index <= argc)
+    {
+        temp = head;
+        min_node = finding_min_node(temp); 
+    	if (min_node)
+        {
+			min_node->index = index;
+            index++;
+        }
+		else
+			break;
+    }
+
+	printf("INDEX 2: %i\n", head->index);
+	printf("INDEX 1: %i\n", head->next->index);
+	printf("INDEX 7: %i\n", head->next->next->index);
+	printf("INDEX 4: %i\n", head->next->next->next->index);
+	exit(0);
+	return ;
+}
+
+stack *finding_min_node(stack *temp)
+{
+	int min;
+	stack *min_node;
+
+	min_node = NULL;
+	min = INT_MAX;
+	while (temp)
+    {
+		if (temp->data < min && temp->index == 0)
+        {
+			min = temp->data;
+            min_node = temp;
+        }
+        temp = temp->next;
+        }
+	return (min_node);
+} 
+

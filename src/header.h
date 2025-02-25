@@ -2,10 +2,12 @@
 # define HEADER_H
 
 #include "../libft/libft.h"
-#include <stdio.h>
+#include "limits.h"
+#include "stdio.h"
 
 typedef struct stack{
 	int 			data;
+	int				index;
 	struct stack	*next;
 	struct stack	*prev;
 } stack;
@@ -27,6 +29,8 @@ stack	*createstack(int argc, char **argv);
 stack	*list_newnode(int data);
 stack	*list_addlast(int data, stack **last, stack **head);
 stack 	*list_getlast(stack *head);
+void	indexing(stack *head, int argc);
+stack	*finding_min_node(stack *temp);
 
 //sort
 void	sort(stack **head_a, int argc);

@@ -1,14 +1,14 @@
 #include "header.h"
-#include <stdio.h>
 
 //
-int		main(int argc, char **argv);
+int	main(int argc, char **argv);
 
 int main(int argc, char **argv)
 {	
 	stack *head_a;
 	argv = prep_input(&argc, argv);
 	head_a = createstack(argc, argv);
+	indexing(head_a, argc);
 	sort(&head_a, (argc - 1));
 
 //TESTING

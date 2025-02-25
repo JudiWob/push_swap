@@ -13,6 +13,7 @@ stack	*list_newnode(int data)
 	if (!new)
 		return (NULL);
 	new->data = data;
+	new->index = 0;
 	new->next = NULL;
 	new->prev = NULL;
 	return new;
