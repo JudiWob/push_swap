@@ -20,8 +20,7 @@ int main(int argc, char **argv)
 
 //TESTING END
 
-//	free_list (head_a);
-	free_exit(&argv, argc, head_a, 0);
+	free_list (&head_a);
 	return 0;
 }
 

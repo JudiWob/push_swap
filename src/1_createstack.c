@@ -12,9 +12,11 @@
 
 #include "header.h"
 
-//create stack
+//create stack and indexing
 stack	*createstack(int argc, char **argv);
-void	free_exit(char ***argv, int argc, stack *head_a, int success);
+void	indexing(stack *head, int argc);
+stack	*indexing_min_node(stack *temp);
+
 
 
 stack	*createstack(int argc, char **argv)
@@ -41,10 +43,8 @@ stack	*createstack(int argc, char **argv)
 		free_exit(&original_argv, argc, head_a, -1);		//exit:doubles
 //	if(!check_sorting(head_a))								
 //		free_exit(&original_argv, argc, head_a, 1);			//exit:already sorted
-	
-//test_print_from_last(last_a);
-//	free_argv(&original_argv, argc);
-	return head_a;
+
+	return (free_argv(&original_argv, argc), head_a);
 }
 
 void indexing(stack *head, int argc)
@@ -57,7 +57,7 @@ void indexing(stack *head, int argc)
     while (index <= argc)
     {
         temp = head;
-        min_node = finding_min_node(temp); 
+        min_node = indexing_min_node(temp); 
     	if (min_node)
         {
 			min_node->index = index;
@@ -75,7 +75,7 @@ void indexing(stack *head, int argc)
 	return ;
 }
 
-stack *finding_min_node(stack *temp)
+stack	*indexing_min_node(stack *temp)
 {
 	int min;
 	stack *min_node;

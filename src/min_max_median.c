@@ -1,7 +1,7 @@
 #include "header.h"
 
 //min amx ops
-int find_median(stack *head, int arg);
+int		find_median(stack *head, int arg);
 int     findmax(stack *head);
 int     findmin(stack *head);
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);

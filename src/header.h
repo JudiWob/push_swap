@@ -30,7 +30,7 @@ stack	*list_newnode(int data);
 stack	*list_addlast(int data, stack **last, stack **head);
 stack 	*list_getlast(stack *head);
 void	indexing(stack *head, int argc);
-stack	*finding_min_node(stack *temp);
+stack	*indexing_min_node(stack *temp);
 
 //sort
 void	sort(stack **head_a, int argc);
