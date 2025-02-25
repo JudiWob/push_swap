@@ -13,8 +13,8 @@ int main(int argc, char **argv)
 
 //printf("MAIN TESTS\n");
 // test_print_from_last(list_getlast(head_a));
-test_print_from_head(head_a);
-printf("indea %i\n", head_a->next->index);
+
+//printf("index %i\n", head_a->next->data);
 // printf("Pos Max %i\n", findmax(head_a));
 
 //TESTING END

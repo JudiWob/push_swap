@@ -47,11 +47,14 @@ void	ra_left(stack **head, char c);
 void	rra_right(stack **head, char c);
 int		findmax(stack *head);
 int		findmin(stack *head);
-int		find_median(stack *head, int arg);
+int		find_indx_middle(stack *head, int arg);
 void	few_mintotop(stack **head_a);
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb);
-void	push_back_three(stack **head_a, stack **head_b, int *argc, int *argb);
+//void	push_back_three(stack **head_a, stack **head_b, int *argc, int *argb);
+//void	sort_while_moving(stack **head_a, stack **head_b, int *argc, int *argb);
+void	chunking(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
+void	chunk_sorting(stack **head_a, stack **head_b, int chunksize);
 
 //clean
 void	free_exit(char ***argv, int argc, stack *head_a, int success);
@@ -60,6 +63,6 @@ void	free_list(stack **head);
 
 //test
 void test_print_from_last(stack *last);
-void test_print_from_head(stack *head);
+void	test_print_from_head(stack *a, stack *b);
 
 #endif

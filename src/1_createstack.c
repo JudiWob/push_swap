@@ -67,6 +67,7 @@ void indexing(stack *head, int argc)
 // printf("INDEX 1: %i\n", head->next->index);
 // printf("INDEX 7: %i\n", head->next->next->index);
 // printf("INDEX 4: %i\n", head->next->next->next->index);
+	printf("index %i\n", head->index);
 	return ;
 }
 
@@ -85,7 +86,7 @@ stack	*indexing_min_node(stack *temp)
             min_node = temp;
         }
         temp = temp->next;
-	}
+ }
 	return (min_node);
 } 
 

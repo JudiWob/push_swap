@@ -52,32 +52,46 @@ stack *list_getlast(stack *head)
 
 
 /// ////////////////////////////////////////////
-void	test_print_from_head(stack *head)
+void	test_print_from_head(stack *a, stack *b)
 {
 	// if(head == NULL)
 	// 	printf(" NULL\n");
 	//else
-	{
-		printf("From Head: ");
-		while(head)
-		{
-			printf("%d ", head->data);
-			head = head->next;
-		}
-		printf("\n");
-	}
+	printf("\n Stack A      Stack B \n");
+    printf("----------------------\n");
+
+    // Iterate through both stacks simultaneously
+    while (a || b) {
+        if (a) {
+            printf(" %5d", a->data);
+            a = a->next;
+        } else {
+            printf("      "); // Empty space if Stack A is shorter
+        }
+
+        printf("    |    "); // Separator
+
+        if (b) {
+            printf("%5d", b->data);
+            b = b->next;
+        }
+
+        printf("\n"); // Newline for the next row
+    }
+    
+    printf("----------------------\n");
 	return;
 }
 
 void	test_print_from_last(stack *last)
 {
-	printf("From Last: ");
+	printf("\n");
 	
 	while (last)
 	{
-		printf("%d ", last->data);
+		printf("%d\n", last->data);
 		last = last->prev;
 	}
-	printf("\n");
+	printf("From Last: ");
 	return;
 }
