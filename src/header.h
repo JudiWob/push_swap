@@ -48,12 +48,10 @@ void	rra_right(stack **head, char c);
 int		findmax(stack *head);
 int		findmin(stack *head);
 int		find_median(stack *head, int arg);
-void    mintotop(stack **head_a);
+void	few_mintotop(stack **head_a);
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb);
 void	push_back_three(stack **head_a, stack **head_b, int *argc, int *argb);
-
-
 
 //clean
 void	free_exit(char ***argv, int argc, stack *head_a, int success);

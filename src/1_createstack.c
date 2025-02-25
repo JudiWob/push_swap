@@ -14,10 +14,8 @@
 
 //create stack and indexing
 stack	*createstack(int argc, char **argv);
-void	indexing(stack *head, int argc);
 stack	*indexing_min_node(stack *temp);
-
-
+void	indexing(stack *head, int argc);
 
 stack	*createstack(int argc, char **argv)
 {
@@ -43,7 +41,6 @@ stack	*createstack(int argc, char **argv)
 		free_exit(&original_argv, argc, head_a, -1);		//exit:doubles
 //	if(!check_sorting(head_a))								
 //		free_exit(&original_argv, argc, head_a, 1);			//exit:already sorted
-
 	return (free_argv(&original_argv, argc), head_a);
 }
 
@@ -66,12 +63,10 @@ void indexing(stack *head, int argc)
 		else
 			break;
     }
-
-	printf("INDEX 2: %i\n", head->index);
-	printf("INDEX 1: %i\n", head->next->index);
-	printf("INDEX 7: %i\n", head->next->next->index);
-	printf("INDEX 4: %i\n", head->next->next->next->index);
-	exit(0);
+// printf("INDEX 2: %i\n", head->index);
+// printf("INDEX 1: %i\n", head->next->index);
+// printf("INDEX 7: %i\n", head->next->next->index);
+// printf("INDEX 4: %i\n", head->next->next->next->index);
 	return ;
 }
 
@@ -90,7 +85,7 @@ stack	*indexing_min_node(stack *temp)
             min_node = temp;
         }
         temp = temp->next;
-        }
+	}
 	return (min_node);
 } 
 

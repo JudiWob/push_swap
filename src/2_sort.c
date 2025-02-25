@@ -18,21 +18,17 @@ stack 	*sort_big(stack *head_a, int argc);
 
 void	sort(stack **head_a, int argc)
 {
-//printf("sort\n");
-	if(argc == 2) //sort 2 numbers
+
+	if(argc == 2) 
 		sort_two(*head_a);
-	if(argc == 3) //sort 3 numbers
+	if(argc == 3) 
 		*head_a = sort_three(*head_a);
 	if(argc == 4)
 		*head_a = sort_four(*head_a);
 	if(argc == 5)
 		*head_a = sort_five(*head_a);
 	if(argc > 5)
-	{
-//		printf("test\n");
 		*head_a = sort_big(*head_a, argc);
-	}	
-	
 	return;
 }
 
@@ -46,18 +42,18 @@ stack 	*sort_big(stack *head_a, int argc)
 	head_b = NULL;
 
 			split_median_a(&head_a, &head_b, &argc, &argb);
-// printf("Median of A, if smaller, push to b\n");
-// printf("A:");
-// test_print_from_head(head_a);
-// printf("B:");
-// test_print_from_head(head_b);
-// printf("If A has < 5 Elements, sort manually\n");
-			sort(&head_a, argc);
+printf("Median of A, if smaller, push to b\n");
+printf("A:");
+test_print_from_head(head_a);
+printf("Test B:");
+test_print_from_head(head_b);
+printf("If A has < 5 Elements, sort manually\n");
+			//sort(&head_a, argc);
 // printf("A after Sorting: ");
 // test_print_from_head(head_a);
 			while(argb > 5)
 				split_median_b(&head_a, &head_b, &argc, &argb);
-			sort(&head_b, argb);
+			//sort(&head_b, argb);
 
 // printf("Median of B, if bigger, push to b\n");
 // printf("A:");
@@ -70,10 +66,12 @@ stack 	*sort_big(stack *head_a, int argc)
 // printf("argb: %i\n", argb);
 //	push_back_three(&head_a, &head_b, &argc, &argb);
 
-printf("A:");
+printf("end sort A:");
 test_print_from_head(head_a);
-printf("B:");
+printf("end sort B:");
 test_print_from_head(head_b);
+int count = 0;
+printf("%i\n", count++);
 
 	return (head_a);
 }

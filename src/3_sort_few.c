@@ -17,7 +17,7 @@ void	sort_two(stack *head);
 stack	*sort_three(stack *head);
 stack	*sort_four(stack *head_a);
 stack	*sort_five(stack *head_a);
-void    mintotop(stack **head_a);
+void    few_mintotop(stack **head_a);
 
 void	sort_two(stack *head)
 {
@@ -53,25 +53,11 @@ stack	*sort_four(stack *head_a)
 	stack *head_b;
 
     head_b = NULL;
-	mintotop(&head_a);
+	few_mintotop(&head_a);
 	push_px(&head_a, &head_b, 'a');
     head_a = sort_three(head_a);// Now sort the top 3
 	push_px(&head_b, &head_a, 'b');
     return (head_a);
-    
-// printf("A:");
-// test_print_from_last(list_getlast(head_a));
-// printf("A:");
-// test_print_from_head(head_a);
-// if(!*head_b)
-// {
-// 	printf("Stack b is empty\n");
-// 	return head_a;
-// }	
-// printf("B:");
-// test_print_from_last(list_getlast(*head_b));
-// printf("B:");
-// test_print_from_head(*head_b);
 }
 
 stack	*sort_five(stack *head_a)
@@ -80,9 +66,9 @@ stack	*sort_five(stack *head_a)
 
     head_b = NULL;
 //test_print_from_head(head_a);
-    mintotop(&head_a);
+    few_mintotop(&head_a);
 	push_px(&head_a, &head_b, 'a');
-    mintotop(&head_a);
+    few_mintotop(&head_a);
     push_px(&head_a, &head_b, 'a');
     head_a = sort_three(head_a);// Now sort the top 3
 	push_px(&head_b, &head_a, 'b');
@@ -90,7 +76,7 @@ stack	*sort_five(stack *head_a)
     return (head_a);
 }
 
-void mintotop(stack **head_a)
+void few_mintotop(stack **head_a)
 {
     int indx_min;
 
@@ -113,3 +99,17 @@ void mintotop(stack **head_a)
     }
     return;
 }
+
+// printf("A:");
+// test_print_from_last(list_getlast(head_a));
+// printf("A:");
+// test_print_from_head(head_a);
+// if(!*head_b)
+// {
+// 	printf("Stack b is empty\n");
+// 	return head_a;
+// }	
+// printf("B:");
+// test_print_from_last(list_getlast(*head_b));
+// printf("B:");
+// test_print_from_head(*head_b);

@@ -33,9 +33,10 @@ void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb)
     *argc = *argc - count;
     *argb = (*argb) + count;
 //printf("A after split median: ");
+printf("median: %i\n", median);
 	return;
+}
 //median = find_median(*head_a, *argc);
-//printf("median: %i\n", median);
 // printf("argc: %i\n", *argc);
 // printf("i%i\n", i);
     
@@ -44,7 +45,6 @@ void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb)
 // printf("Inside split loop B: ");
 // test_print_from_head(*head_b);
 // printf("median: %i\n", median);
-}
 
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb)
 {
@@ -55,9 +55,11 @@ void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb)
     count = 0;
     i = 0;
     median = find_median(*head_b, *argb);
-//printf("median b: %i\n", median);
 //printf("B before split median: ");
 //test_print_from_head(*head_b);
+printf("Test B:\n");
+printf("median b: %i\n", median);
+test_print_from_head(*head_b);
 	while(i < *argb)
 	{
         if((*head_b)->data > median)
@@ -71,6 +73,8 @@ void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb)
     }
     *argc = *argc + count;
     *argb = (*argb) - count;
+printf("Test B:\n");
+test_print_from_head(*head_b);
 //    printf("B after split median: ");
 	return;
 }
