@@ -2,22 +2,10 @@
 
 //min amx ops
 int		find_indx_middle(stack *head, int arg);
-int     findmax(stack *head);
-int     findmin(stack *head);
+int     find_pos_max(stack *head);
+int     find_pos_min(stack *head);
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb);
-
-
-// void	sort_while_moving(stack **head_a, stack **head_b, int *argc, int *argb)
-// {
-// 	stack *last;
-
-// 	last = list_getlast(head_b);
-// 	while((*head_a)->index > (*head_b)->index)
-// 	{
-// 		if((*head_a)->index > (*head_b)->index)
-// 	}
-// }
 
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb)
 {
@@ -25,22 +13,22 @@ void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb)
     int i;
     int count;
 	int mitte;
-
+    printf("run median a\n");
     count = 0;
     i = 0;
 	mitte = find_indx_middle(*head_a, *argc);
-	while(i < *argc && *argc > 5)
+	while(i < *argc && (*argc) > 5)
 	{
         if((*head_a)->index <= mitte)
 		    {
 			    push_px(head_a, head_b, 'a');
 			    count++;
+                (*argc)--;
 		    }
 		else
 			    ra_left(head_a, 'a');
         i++;
     }
-    *argc = *argc - count;
     *argb = (*argb) + count;
 test_print_from_head(*head_a, *head_b);
 // printf("argb: %i\n", *argb);
@@ -50,14 +38,13 @@ printf("cut\n");
 	return;
 }
 
-
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb)
 {
 //	int median;
     int i;
     int count;
 	int mitte;
-
+    printf("run median b\n");
     count = 0;
     i = 0;
 	mitte = find_indx_middle(*head_b, *argb);
@@ -118,7 +105,7 @@ int find_indx_middle(stack *head, int arg)
 // printf("Median: %i\n", median);
 }
 
-int findmax(stack *head)
+int find_pos_max(stack *head)
 {
     stack   *max;
     int     n;
@@ -142,7 +129,7 @@ int findmax(stack *head)
     return (pos);
 }
 
-int findmin(stack *head)
+int find_pos_min(stack *head)
 {
     stack   *min;
     int     n;

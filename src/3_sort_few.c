@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_few.c                                         :+:      :+:    :+:   */
+/*   3_sort_few.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:38:29 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/20 21:49:15 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/02/26 16:05:52 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sort_two(stack *head);
 stack	*sort_three(stack *head);
 stack	*sort_four(stack *head_a);
 stack	*sort_five(stack *head_a);
-void    few_mintotop(stack **head_a);
+void    min_to_top(stack **head_a);
 
 void	sort_two(stack *head)
 {
@@ -53,7 +53,8 @@ stack	*sort_four(stack *head_a)
 	stack *head_b;
 
     head_b = NULL;
-	few_mintotop(&head_a);
+	min_to_top(&head_a);
+
 	push_px(&head_a, &head_b, 'a');
     head_a = sort_three(head_a);// Now sort the top 3
 	push_px(&head_b, &head_a, 'b');
@@ -65,10 +66,9 @@ stack	*sort_five(stack *head_a)
 	stack *head_b;
 
     head_b = NULL;
-//test_print_from_head(head_a);
-    few_mintotop(&head_a);
+    min_to_top(&head_a);
 	push_px(&head_a, &head_b, 'a');
-    few_mintotop(&head_a);
+    min_to_top(&head_a);
     push_px(&head_a, &head_b, 'a');
     head_a = sort_three(head_a);// Now sort the top 3
 	push_px(&head_b, &head_a, 'b');
@@ -76,11 +76,12 @@ stack	*sort_five(stack *head_a)
     return (head_a);
 }
 
-void few_mintotop(stack **head_a)
+void min_to_top(stack **head_a)
 {
     int indx_min;
 
-    indx_min = findmin(*head_a);
+    printf("test\n");
+    indx_min = find_pos_min(*head_a);
 //printf("Minimum %i\n", indx_min);
     if (indx_min == 2)
     {

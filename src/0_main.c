@@ -1,5 +1,6 @@
 #include "header.h"
 
+//./pushswap  88 675 2 0 999 -08643 56 78 -456 4 -666 -4 777 -543 9 -23 99 22
 
 int main(int argc, char **argv)
 {	
@@ -20,6 +21,7 @@ int main(int argc, char **argv)
 //TESTING END
 
 	free_list (&head_a);
+	printf("exit\n");
 	return 0;
 }
 

@@ -75,11 +75,17 @@ char	*check_doubles(stack *head)
 
 char	*check_sorting(stack *head)
 {
-	//stack *temp;
-	//stack *go;
+	stack *temp;
 
 	if(!head || !head->next)
 		return NULL;
-	return ("ok");
-	
+
+	temp = head;
+	while(temp)
+	{
+		if(temp->data > temp->next->data)
+			return (NULL);
+		temp = temp->next;
+	}
+	return ("sorted");
 }
