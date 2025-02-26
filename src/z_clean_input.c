@@ -78,14 +78,16 @@ char	*check_sorting(stack *head)
 	stack *temp;
 
 	if(!head || !head->next)
-		return NULL;
-
+		return (NULL);
+	
 	temp = head;
-	while(temp)
+	while(temp->next)
 	{
 		if(temp->data > temp->next->data)
+		{
 			return (NULL);
+		}	
 		temp = temp->next;
 	}
-	return ("sorted");
+	return (printf("SORTED!\n"),"sorted");
 }
