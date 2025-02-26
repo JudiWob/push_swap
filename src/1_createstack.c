@@ -6,7 +6,7 @@
 /*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:21:27 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/26 16:20:09 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/26 16:54:21 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 //create stack and indexing
 stack	*createstack(int argc, char **argv);
-stack	*indexing_min_node(stack *temp);
-void	indexing(stack *head, int argc);
 
 stack	*createstack(int argc, char **argv)
 {
@@ -46,49 +44,4 @@ stack	*createstack(int argc, char **argv)
 	return (free_argv(&original_argv, argc), head_a);
 }
 
-void indexing(stack *head, int argc)
-{
-    stack *temp;
-    stack *min_node;
-    int index;
-
-    index = 1;
-    while (index <= argc)
-    {
-        temp = head;
-        min_node = indexing_min_node(temp); 
-    	if (min_node)
-        {
-			min_node->index = index;
-            index++;
-        }
-		else
-			break;
-    }
-// printf("INDEX 2: %i\n", head->index);
-// printf("INDEX 1: %i\n", head->next->index);
-// printf("INDEX 7: %i\n", head->next->next->index);
-// printf("INDEX 4: %i\n", head->next->next->next->index);
-	printf("index %i\n", head->index);
-	return ;
-}
-
-stack	*indexing_min_node(stack *temp)
-{
-	int min;
-	stack *min_node;
-
-	min_node = NULL;
-	min = INT_MAX;
-	while (temp)
-    {
-		if (temp->data < min && temp->index == 0)
-        {
-			min = temp->data;
-            min_node = temp;
-        }
-        temp = temp->next;
- }
-	return (min_node);
-} 
 

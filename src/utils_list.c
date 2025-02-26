@@ -50,7 +50,6 @@ stack *list_getlast(stack *head)
 }
 
 
-
 /// ////////////////////////////////////////////
 void	test_print_from_head(stack *a, stack *b)
 {

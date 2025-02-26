@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_sort.c                                           :+:      :+:    :+:   */
+/*   2_sort_big.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 18:34:21 by tsuno             #+#    #+#             */
-/*   Updated: 2025/02/26 15:58:46 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/26 17:01:31 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	chunk_sorting(stack **head_a, stack **head_b, int chunksize);
 
 void	sort(stack **head_a, int argc)
 {
-
 	if(argc == 2) 
 		sort_two(*head_a);
 	if(argc == 3) 
@@ -37,17 +36,16 @@ test_print_from_head(*head_a, NULL);
 
 stack 	*sort_big(stack *head_a, int argc)
 {
-//	stack *temp;
 	stack *head_b;
-	int argb ;
+	int argb;
+	int chunksize;
 
 	head_b = NULL;
 	argb = 0;
-	int chunksize;
-
 	chunksize = 5;
 	if (argc > 100)
 		chunksize = 10;
+
 //push all but 5 last numbers from a to b, repeatly sortef by middle index
 	while(argc > 5)
 	{
