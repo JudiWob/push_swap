@@ -6,7 +6,7 @@
 /*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:21:27 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/26 16:54:21 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/26 17:04:55 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ stack	*createstack(int argc, char **argv)
 			free_exit(&original_argv, argc, head_a, -1); 	//exit: malloc fail making node
 	}
 	if(!check_doubles(head_a))
-		free_exit(&original_argv, argc, head_a, -1);		//exit:doubles
-		
+		free_exit(&original_argv, argc, head_a, -1);		//exit:doubles	
 	if((check_sorting(head_a)))								
 		free_exit(&original_argv, argc, head_a, 1);			//exit:already sorted
 //test_print_from_head(head_a, NULL);

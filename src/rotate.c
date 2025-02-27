@@ -29,7 +29,6 @@ void ra_left(stack **head, char c)
     return;
 }
 
-
 void rra_right(stack **head, char c)
 {
     stack *last;
