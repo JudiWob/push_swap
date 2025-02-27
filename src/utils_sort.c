@@ -3,7 +3,7 @@
 //sort utils
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
-void    min_to_top(stack **head_a);
+void    min_to_top(stack **head_a, int argc);
 int     find_pos_min(stack *head);
 int     find_pos_index(stack *head, int min_index);
 //int     find_pos_max(stack *head);
@@ -18,18 +18,18 @@ void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb)
     count = 0;
     i = 0;
 	mitte = find_indx_middle(*head_a, *argc);
-printf("mitte %i a\n", mitte);
-printf("argc %i a\n", *argc);
+//printf("mitte %i a\n", mitte);
+//printf("argc %i a\n", *argc);
 	while(count < mitte && (*argc) > 5)
 	{
         if((*head_a)->index <= mitte)
 		    {
-			    printf("data %i a\n", (*head_a)->data);
-                printf("index %i a\n", (*head_a)->index);
+// printf("data %i a\n", (*head_a)->data);
+// printf("index %i a\n", (*head_a)->index);
                 push_px(head_a, head_b, 'a');
 			    count++;
                 (*argc)--;
-                printf("argc %i a\n", *argc);
+//printf("argc %i a\n", *argc);
 		    }
 		else
 			    ra_left(head_a, 'a');
@@ -49,21 +49,23 @@ void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb, int ch
     int i;
     int count;
 	int mitte;
- printf("run median b\n");
+printf("run median b\n");
     count = 0;
     i = 0;
 	mitte = find_indx_middle(*head_b, *argb);
 // printf("argb: %i\n", *argb);
 // printf("argc: %i\n", *argc);
-// printf("mitte: %i\n", mitte);
+printf("mitte mitte: %i\n", mitte);
 	while(i < *argb && count < chunksize)
 	{
-        if((*head_b)->index > mitte)
+        if((*head_b)->index >= mitte)
 		{
-			push_px(head_b, head_a, 'b');
+			if((*head_b)->index < (*head_b)->next->index)
+                swap_sx(*head_b, 'b');
+            push_px(head_b, head_a, 'b');
 			count++;
-		 }
-		 else
+		}
+		else
 			ra_left(head_b, 'b');
         i++;
     }
@@ -78,27 +80,29 @@ void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb, int ch
 	return;
 }
 
-void min_to_top(stack **head_a)
+void min_to_top(stack **head_a, int argc)
 {
     int pos_min;
 
     pos_min = find_pos_min(*head_a);
-//printf("Minimum %i\n", indx_min);
+
     if (pos_min == 2)
     {
         swap_sx(*head_a, 'a');
     }
-    else if (pos_min== 3)
+    else if (pos_min == 3)
     {
 		ra_left(head_a, 'a');
 		ra_left(head_a, 'a');
 	} 
-    else if (pos_min > 3)
+    else if (pos_min >= 4)
     {
         rra_right(head_a, 'a');
-        if(pos_min == 3)
+        if(pos_min == 4 && argc == 5)
             rra_right(head_a, 'a');
     }
+    //printf("after mintop");
+    //test_print_from_head(*head_a, NULL);
     return;
 }
 

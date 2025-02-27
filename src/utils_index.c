@@ -73,12 +73,12 @@ int find_indx_max(stack *head, int range)
 		if(temp->index > max)
 		{
 			max = temp->index;
-			//printf("\n max data%i\n\n", temp->data);
 		}	
+//		printf("\n data temp %i\n\n", temp->data);
 		temp = temp->next;
 		n++;
 	}
-//printf("\n\n%i\n\n", max);
+//printf("\n MAX%i\n", max);
     return (max);
 
 }
@@ -119,5 +119,6 @@ int find_indx_middle(stack *head, int range)
 	if((max) % 2 != 0)
         mitte++;
 //printf("mitte %i\n", mitte);
+//printf("head index %i", (head)->index);
 	return (mitte);
 }

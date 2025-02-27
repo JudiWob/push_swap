@@ -6,7 +6,7 @@
 /*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 18:34:21 by tsuno             #+#    #+#             */
-/*   Updated: 2025/02/27 01:37:44 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/27 03:05:46 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	chunk_sorting(stack **head_a, stack **head_b, int *argc, int *argb, int chu
 
 void	sort(stack **head_a, int argc)
 {
+	test_print_from_head(*head_a, NULL);	
 	if(argc == 2) 
 		sort_two(*head_a);
 	if(argc == 3) 
@@ -30,7 +31,7 @@ void	sort(stack **head_a, int argc)
 		*head_a = sort_five(*head_a);
 	if(argc > 5)
 		*head_a = sort_big(*head_a, argc);
-
+	test_print_from_head(*head_a, NULL);	
 	return;
 }
 
@@ -87,13 +88,24 @@ void chunk_sorting(stack **head_a, stack **head_b, int *argc, int *argb, int chu
 	//while(!check_sorting(*head_a))
 	//{
 		check_first_two(head_a, head_b);
-	printf("before put max\n");
+printf("before put max\n");
+//printf("head indes %i", (*head_a)->next->index);
+//printf("last indes %i", (list_getlast((*head_a))->index));
 test_print_from_head(*head_a, *head_b);
+	
 		put_max(head_a, head_b, argc, argb, chunksize);
-//		put_max(head_a, head_b, argc, argb, chunksize);
-
+printf("after first put max\n");
+test_print_from_head(*head_a, *head_b);
+chunksize--;
+printf("chunksize %i\n", chunksize);
+		put_max(head_a, head_b, argc, argb, chunksize);
+printf("put max\n");
+test_print_from_head(*head_a, *head_b);
+chunksize--;
+		put_max(head_a, head_b, argc, argb, chunksize);
 printf("abefore smallest\n");
 test_print_from_head(*head_a, *head_b);
+//split_median_a(head_a, head_b, argc, argb);
 		//smallest_to_b(head_a, head_b, argc, argb);
 		//bubble_sort(head_a);
 		
@@ -102,23 +114,6 @@ test_print_from_head(*head_a, *head_b);
 	
 }
 
-//	if ((*head_a)->data > (*head_a)->next->data)
-//	{
-//		if((*head_b)->data < (*head_b)->next->data)
-//			swap_ss(*head_a, *head_b);
-//		else
-//			swap_sx(*head_a, 'a');
-//	}
-////looking at b
-//	//if ((*head_b)->data < (*head_b)->next->data)
-//	//{
-//		if((*head_b)->data < (*head_b)->next->data) 
-//			swap_sx(*head_b, 'b');
-//		//else
-//		//	swap_sx(*head_a, 'a');
-////	}
-//	return;
-//}
 
 
 void chunking(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize)
@@ -126,18 +121,9 @@ void chunking(stack **head_a, stack **head_b, int *argc, int *argb, int chunksiz
 	int i;
 
 	i = 0;
-	//
 	
 	split_median_b(head_a, head_b, argc, argb, chunksize);
-	//while(i < chunksize && (*argb) > 0)
-	//{
-    //    push_px(head_b, head_a, 'a');
-	//	(*argb)--;
-    //    i++;
-	//	printf("%i\n", i);
-    //}
-    //*argc = *argc + i;
-    ////*argb = (*argb) - i;
+
 	printf("TEST\n");
 
 	return;

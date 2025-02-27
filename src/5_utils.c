@@ -80,24 +80,43 @@ void put_max(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize
 	min = find_indx_min(*head_a, chunksize);
 	mitte = find_indx_middle(*head_a, chunksize);
 
-	while((*head_a)->index != max)
-	{
-		if((*head_a)->index <= mitte)
+	//while(!(list_getlast(*head_a)->index == max && (*head_a)->index == min ))
+	//{
+		printf("head index %i\n", (*head_a)->next->index);
+		printf("mitte index %i\n", mitte);
+		printf("max index %i\n", max);
+		while((*head_a)->index != max)
 		{
-			if((*head_a)->index > (*head_a)->next->index)
-				swap_sx(*head_a, 'a');
-			push_px(head_a, head_b, 'b');
-			(*argc)--;
-			(*argb)++;
+			if((*head_a)->index < mitte)
+			{
+				if((*head_a)->index > (*head_a)->next->index)
+					swap_sx(*head_a, 'a');
+				push_px(head_a, head_b, 'b');
+				(*argc)--;
+				(*argb)++;
+			}
+			else  //if((*head_a)->index >= mitte)
+			{
+				printf("\nTEST\n");
+				if ((*head_a)->index == max)
+				{
+					ra_left(head_a, 'a');
+					break;
+				}
+				if(((*head_a)->index < (*head_a)->next->index))
+					swap_sx(*head_a, 'a');
+					ra_left(head_a, 'a');
+			}
 		}
-		else if((*head_a)->index > mitte)
-		{
-			if(((*head_a)->index > (*head_a)->next->index) && ((*head_a)->next->index != max))
-			swap_sx(*head_a, 'a');
-			ra_left(head_a, 'a');
-		}
-	}
-	ra_left(head_a, 'a');
+		//if((*head_a)->index > list_getlast(*head_a)->index)
+		//{
+		//&& ((*head_a)->next->index != max)
+		//	rra_right(head_a, 'a');
+		//	swap_sx(*head_a, 'a');
+		//	ra_left(head_a, 'a');
+		//	ra_left(head_a, 'a');
+		//}
+	//}
 	return;
 }
 

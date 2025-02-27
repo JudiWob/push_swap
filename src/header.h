@@ -62,7 +62,7 @@ void	ra_left(stack **head, char c);
 void	rra_right(stack **head, char c);
 //int     find_pos_max(stack *head);
 int     find_pos_min(stack *head);
-void	min_to_top(stack **head_a);
+void    min_to_top(stack **head_a, int argc);
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
 void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
 //void	push_back_three(stack **head_a, stack **head_b, int *argc, int *argb);

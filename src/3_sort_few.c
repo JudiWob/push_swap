@@ -6,7 +6,7 @@
 /*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:38:29 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/02/26 16:49:40 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/02/27 02:18:13 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ stack	*sort_four(stack *head_a)
 	stack *head_b;
 
     head_b = NULL;
-	min_to_top(&head_a);
+	min_to_top(&head_a, 4);
 
 	push_px(&head_a, &head_b, 'a');
     head_a = sort_three(head_a);// Now sort the top 3
@@ -66,10 +66,13 @@ stack	*sort_five(stack *head_a)
 	stack *head_b;
 
     head_b = NULL;
-    min_to_top(&head_a);
+    min_to_top(&head_a, 5);
 	push_px(&head_a, &head_b, 'a');
-    min_to_top(&head_a);
+    //printf("after push");
+    //test_print_from_head(head_a, NULL);
+    min_to_top(&head_a, 4);
     push_px(&head_a, &head_b, 'a');
+
     head_a = sort_three(head_a);// Now sort the top 3
 	push_px(&head_b, &head_a, 'b');
     push_px(&head_b, &head_a, 'b');
