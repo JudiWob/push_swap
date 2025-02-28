@@ -85,6 +85,10 @@ char	*check_sorting(stack *head)
 	{
 		if(temp->data > temp->next->data)
 		{
+			printf("NOT SORTED %i", temp->data);
+			//printf("NOT SORTED %i", temp->prev->index);
+			printf("NOT SORTED %i", temp->index);
+			printf("NOT SORTED %i", temp->next->index);
 			return (NULL);
 		}	
 		temp = temp->next;

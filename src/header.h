@@ -19,10 +19,17 @@ typedef struct stack{
 
 
 void check_first_two(stack **head_a, stack **head_b);
-void put_max(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
 void bubble_sort(stack **head_a);
 int     find_pos_index(stack *head, int min_index);
 void	smallest_to_b(stack **head_a, stack **head_b, int *argc, int *argb);
+
+void put_max(stack **head_a, stack **head_b, int *argc, int *argb);
+void go_left_max(stack **head_a, stack **head_b, int *argc, int *argb);
+void go_right_max(stack **head_a, stack **head_b, int *argc, int *argb);
+int find_pos_max(stack *head);
+int find_shortest_way(stack **head, int argb);
+void check_stack_a(stack **head_a, stack **head_b, int *argc, int *argb);
+
 
 
 //input
@@ -64,7 +71,7 @@ void	rra_right(stack **head, char c);
 int     find_pos_min(stack *head);
 void    min_to_top(stack **head_a, int argc);
 void	split_median_a(stack **head_a, stack **head_b, int *argc, int *argb);
-void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
+void	split_median_b(stack **head_a, stack **head_b, int *argc, int *argb);
 //void	push_back_three(stack **head_a, stack **head_b, int *argc, int *argb);
 //void	sort_while_moving(stack **head_a, stack **head_b, int *argc, int *argb);
 void	chunking(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);

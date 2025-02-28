@@ -17,10 +17,10 @@ void	sort(stack **head_a, int argc);
 stack 	*sort_big(stack *head_a, int argc);
 void	chunking(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
 void	chunk_sorting(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize);
+void check_stack_a(stack **head_a, stack **head_b, int *argc, int *argb);
 
 void	sort(stack **head_a, int argc)
 {
-	test_print_from_head(*head_a, NULL);	
 	if(argc == 2) 
 		sort_two(*head_a);
 	if(argc == 3) 
@@ -31,7 +31,7 @@ void	sort(stack **head_a, int argc)
 		*head_a = sort_five(*head_a);
 	if(argc > 5)
 		*head_a = sort_big(*head_a, argc);
-	test_print_from_head(*head_a, NULL);	
+//	test_print_from_head(*head_a, NULL);	
 	return;
 }
 
@@ -48,70 +48,93 @@ stack 	*sort_big(stack *head_a, int argc)
 		chunksize = 10;
 	
 //push all but 5 last numbers from a to b, repeatly sorted by middle index
+//test_print_from_head(head_a, head_b);
+	//split_median_a(&head_a, &head_b, &argc, &argb);
+	//split_median_b(&head_a, &head_b, &argc, &argb);
+	//split_median_a(&head_a, &head_b, &argc, &argb);
+	//split_median_b(&head_a, &head_b, &argc, &argb);
+
 	while(argc > 5)
 	{
 		split_median_a(&head_a, &head_b, &argc, &argb);
-	}		
+		//if(argc > 20)
+		//	split_median_b(&head_a, &head_b, &argc, &argb);
+	}
 //sort the five numbers in a
+//	printf("TEST ARGC %i\n", argc);
 	sort(&head_a, argc);
-printf("after sorting\n");
-	test_print_from_head(head_a, head_b);	
+test_print_from_head(head_a, head_b);	
+	check_stack_a(&head_a, &head_b, &argc, &argb);
 
-//check if more than five numbers in b
-//push back from b to a chunksize
-//	while(argb > 0)
-//	{
-		chunking(&head_a, &head_b, &argc, &argb, chunksize);
-printf("after chunking\n");
-test_print_from_head(head_a, head_b);
-		chunk_sorting(&head_a, &head_b, &argc, &argb, chunksize);
-//printf("after chunk sorting\n");
-//test_print_from_head(head_a, head_b);
-//	}	
-//else: 5 or less number in b
-//else
-//	sort_five_reverse(&head_b, &head_a, argb);
-printf("END OF SORTING BIG:\n");
-test_print_from_head(head_a, head_b);
-	return (head_a);
-}
+	while(argb > 0)
+	{
+		put_max(&head_a, &head_b, &argc, &argb);
+		//check_first_two(&head_a, &head_b);
+	}	
+// 		put_max(&head_a, &head_b, &argc, &argb);
+// test_print_from_head(head_a, head_b);	
+// 		put_max(&head_a, &head_b, &argc, &argb);
+// test_print_from_head(head_a, head_b);	
+// 		put_max(&head_a, &head_b, &argc, &argb);
 
-// int argc, int argb
-void chunk_sorting(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize)
+//printf("after sorting/ before putmax\n");
+test_print_from_head(head_a, head_b);	
+
+// while(head_a)
+// {
+// 	printf("Data %i INDEX  %i\n",(head_a)->data, (head_a)->index);
+// 	head_a = head_a->next;
+// }
+	
+	check_sorting(head_a);
+ 	return (head_a);
+
+ }
+
+void check_stack_a(stack **head_a, stack **head_b, int *argc, int *argb)
 {
-	//	stack *temp_a;
-	//	stack *temp_b;
-	
-	//	temp_a = head_a;
-	//	temp_a = head_b;
-	//chunksize = 0;
-	//while(!check_sorting(*head_a))
-	//{
-		check_first_two(head_a, head_b);
-printf("before put max\n");
-//printf("head indes %i", (*head_a)->next->index);
-//printf("last indes %i", (list_getlast((*head_a))->index));
-test_print_from_head(*head_a, *head_b);
-	
-		put_max(head_a, head_b, argc, argb, chunksize);
-printf("after first put max\n");
-test_print_from_head(*head_a, *head_b);
-chunksize--;
-printf("chunksize %i\n", chunksize);
-		put_max(head_a, head_b, argc, argb, chunksize);
-printf("put max\n");
-test_print_from_head(*head_a, *head_b);
-chunksize--;
-		put_max(head_a, head_b, argc, argb, chunksize);
-printf("abefore smallest\n");
-test_print_from_head(*head_a, *head_b);
-//split_median_a(head_a, head_b, argc, argb);
-		//smallest_to_b(head_a, head_b, argc, argb);
-		//bubble_sort(head_a);
-		
-	//}
-	return;
-	
+	int max_b;
+	int min_a;
+
+	//int smaller_than_max = 1;
+	max_b = find_indx_max(*head_b, *argb);
+	min_a = find_indx_min(*head_a, *argc);
+
+	if(max_b < min_a)
+		return;
+	printf("TEST\n");
+	while(!(list_getlast(*head_a)->index == min_a))
+	{
+		if((*head_a)->index == min_a)
+			ra_left(head_a, 'a');
+		else
+		{
+			push_px(head_a, head_b, 'b');
+			argc--;
+			argb++;
+		}	
+	}
+           test_print_from_head(*head_a, *head_b);	
+//	printf("min_afound %i\n", min_a);
+//	printf("max_B found %i\n", max_b);
+	while(max_b > min_a)
+	{
+		//printf("max_B found %i\n", max_b);
+		if((*head_b)->index == max_b && max_b > min_a)
+		{
+	//printf("HERE\n");
+			push_px(head_b, head_a, 'a');
+         // printf("argb %i\n", *argb);
+        	(*argc)++;
+			(*argb)--;
+			max_b = find_indx_max(*head_b, *argb);
+		}
+		else
+			ra_left(head_b, 'b');
+	}
+	rra_right(head_a, 'a');
+
+//	test_print_from_head(*head_a, *head_b);	
 }
 
 
@@ -120,11 +143,12 @@ void chunking(stack **head_a, stack **head_b, int *argc, int *argb, int chunksiz
 {
 	int i;
 
+	chunksize = 0;
 	i = 0;
 	
-	split_median_b(head_a, head_b, argc, argb, chunksize);
+	split_median_b(head_a, head_b, argc, argb);
 
-	printf("TEST\n");
+	//printf("TEST\n");
 
 	return;
 }

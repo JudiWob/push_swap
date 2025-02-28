@@ -1,6 +1,11 @@
 #include "header.h"
 
 
+
+void smallest_to_b(stack **head_a, stack **head_b, int *argc, int *argb);
+void bubble_sort(stack **head_a);
+void check_first_two(stack **head_a, stack **head_b) ;
+
 void smallest_to_b(stack **head_a, stack **head_b, int *argc, int *argb)
 {
 	int smallest;
@@ -31,9 +36,6 @@ printf("TEST\n");
 //	}
 
 }
-
-
-void bubble_sort(stack **head_a);
 
 void bubble_sort(stack **head_a)
 {
@@ -70,67 +72,73 @@ test_print_from_head(*head_a, NULL);
 		return;
 }
 
-void put_max(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize)
-{
-	int max;
-	int min;
-	int mitte;
 
-	max = find_indx_max(*head_a, chunksize);
-	min = find_indx_min(*head_a, chunksize);
-	mitte = find_indx_middle(*head_a, chunksize);
+// OLD void put_max(stack **head_a, stack **head_b, int *argc, int *argb, int chunksize)
+// {
+// 	int max;
+// 	int min;
+// 	int mitte;
 
-	//while(!(list_getlast(*head_a)->index == max && (*head_a)->index == min ))
-	//{
-		printf("head index %i\n", (*head_a)->next->index);
-		printf("mitte index %i\n", mitte);
-		printf("max index %i\n", max);
-		while((*head_a)->index != max)
-		{
-			if((*head_a)->index < mitte)
-			{
-				if((*head_a)->index > (*head_a)->next->index)
-					swap_sx(*head_a, 'a');
-				push_px(head_a, head_b, 'b');
-				(*argc)--;
-				(*argb)++;
-			}
-			else  //if((*head_a)->index >= mitte)
-			{
-				printf("\nTEST\n");
-				if ((*head_a)->index == max)
-				{
-					ra_left(head_a, 'a');
-					break;
-				}
-				if(((*head_a)->index < (*head_a)->next->index))
-					swap_sx(*head_a, 'a');
-					ra_left(head_a, 'a');
-			}
-		}
-		//if((*head_a)->index > list_getlast(*head_a)->index)
-		//{
-		//&& ((*head_a)->next->index != max)
-		//	rra_right(head_a, 'a');
-		//	swap_sx(*head_a, 'a');
-		//	ra_left(head_a, 'a');
-		//	ra_left(head_a, 'a');
-		//}
-	//}
-	return;
-}
+// 	max = find_indx_max(*head_a, chunksize);
+// 	min = find_indx_min(*head_a, chunksize);
+// 	mitte = find_indx_middle(*head_a, chunksize);
+// 		printf("head index %i\n", (*head_a)->next->index);
+// 		printf("mitte index %i\n", mitte);
+// 		printf("max index %i\n", max);
+
+// 	while(!(list_getlast(*head_a)->index == max )) //&& (*head_a)->index == min )
+// 	{
+// 		while((*head_a)->index != max)
+// 		{
+// 			if((*head_a)->index < mitte)
+// 			{
+// 				if((*head_a)->index > (*head_a)->next->index)
+// 					swap_sx(*head_a, 'a');
+// 				push_px(head_a, head_b, 'b');
+// 				(*argc)--;
+// 				(*argb)++;
+// 			}
+// 			else  //if((*head_a)->index >= mitte)
+// 			{
+// 				printf("\nTEST\n");
+// 				if ((*head_a)->index == max)
+// 				{
+// 					ra_left(head_a, 'a');
+// 					break;
+// 				}
+// 				if(((*head_a)->index < (*head_a)->next->index))
+// 					swap_sx(*head_a, 'a');
+// 					ra_left(head_a, 'a');
+// 			}
+// 		}
+// 		//if((*head_a)->index > list_getlast(*head_a)->index)
+// 		//{
+// 		//&& ((*head_a)->next->index != max)
+// 		//	rra_right(head_a, 'a');
+// 		//	swap_sx(*head_a, 'a');
+// 		//	ra_left(head_a, 'a');
+// 		//	ra_left(head_a, 'a');
+// 		//}
+// 	}
+// 	return;
+// }
 
 void check_first_two(stack **head_a, stack **head_b) 
 {
-printf("check first two\n");
- test_print_from_head(*head_a, *head_b);
-    while ((*head_b)->index < (list_getlast(*head_b))->index) //useful if median_a was efficient
-        rra_right(head_b, 'b');
-	if ((*head_a)->index > (*head_a)->next->index)
-		swap_sx(*head_b, 'b');
-	if ((*head_b)->index < (*head_b)->next->index)
-    	swap_sx(*head_b, 'b');	
-printf("after check first two\n");
-test_print_from_head(*head_a, *head_b);
+//printf("check first two\n");
+ //test_print_from_head(*head_a, *head_b);
 	
+	if(!(*head_b) || !(*head_b)->next || !(*head_a) || !(*head_a)->next)
+		return;
+
+	//while ((*head_b)->index < (list_getlast(*head_b))->index) //useful if median_a was efficient
+     //  rra_right(head_b, 'b');
+	//if ((*head_b)->index < (*head_b)->next->index && (*head_a)->index > (*head_a)->next->index)
+	//	swap_ss(*head_a, *head_b);
+	if ((*head_a)->index > (*head_a)->next->index)
+		swap_sx(*head_a, 'a');
+	else if ((*head_b)->index < (*head_b)->next->index)
+    	swap_sx(*head_b, 'b');	
+//printf("after check first two\n");
+//test_print_from_head(*head_a, *head_b);
 }

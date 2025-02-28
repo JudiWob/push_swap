@@ -25,9 +25,10 @@ void	swap_sx(stack *head, char c)
 	temp = head->data;
 	head->data = head->next->data;
 	head->next->data = temp;
-	if(PRINT)
-		printf("p%c\n", c);
+//	if(PRINT)
+//		printf("p%c\n", c);
 //test_print_from_head(head);
+c= 48;
 	return;
 }
 
@@ -35,8 +36,9 @@ void	swap_ss(stack *head_a, stack *head_b)
 {
 	swap_sx(head_a, ' ');
 	swap_sx(head_b, ' ');
-	if(PRINT)
-		printf("ss\n");
+//	if(PRINT)
+//		printf("ss\n");
+
 	return;
 }
 
@@ -59,8 +61,9 @@ void	push_px(stack **head_take, stack **head_put, char c)
         (*head_put)->prev = save;		//connect both ways
 
 	(*head_put) = save;//update headput
-	if(PRINT)
-		printf("p%c\n", c);
+//	if(PRINT)
+//		printf("p%c\n", c);
+c= 48;
 	return;
 
 // if(!*head_take)

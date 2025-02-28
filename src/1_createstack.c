@@ -41,6 +41,8 @@ stack	*createstack(int argc, char **argv)
 		free_exit(&original_argv, argc, head_a, 1);			//exit:already sorted
 //test_print_from_head(head_a, NULL);
 	return (free_argv(&original_argv, argc), head_a);
+// printf("beginnig\n");
+// test_print_from_head(head_a, NULL);	
 }
 
 
