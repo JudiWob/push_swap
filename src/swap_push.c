@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s__sort.c                                          :+:      :+:    :+:   */
+/*   swap_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:57:33 by tsuno             #+#    #+#             */
-/*   Updated: 2025/02/20 21:52:01 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/19 15:03:49 by tsuno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,23 @@ void	swap_sx(stack *head, char c)
 	if (!head || !head || !head->next) // Check if swap is possible
         return;
 	int temp;
+	int temp_indx;
+	
 	temp = head->data;
 	head->data = head->next->data;
 	head->next->data = temp;
-//	if(PRINT)
-//		printf("p%c\n", c);
+
+	temp_indx = head->index;
+	head->index = head->next->index;
+	head->next->index = temp;
+	if(PRINT)
+	{
+		if(c == ' ')
+			return;
+		printf("s%c\n", c);
+	}	
 //test_print_from_head(head);
-c= 48;
+
 	return;
 }
 
@@ -36,8 +46,8 @@ void	swap_ss(stack *head_a, stack *head_b)
 {
 	swap_sx(head_a, ' ');
 	swap_sx(head_b, ' ');
-//	if(PRINT)
-//		printf("ss\n");
+	if(PRINT)
+		printf("ss\n");
 
 	return;
 }
@@ -61,9 +71,9 @@ void	push_px(stack **head_take, stack **head_put, char c)
         (*head_put)->prev = save;		//connect both ways
 
 	(*head_put) = save;//update headput
-//	if(PRINT)
-//		printf("p%c\n", c);
-c= 48;
+	if(PRINT)
+		printf("p%c\n", c);
+
 	return;
 
 // if(!*head_take)

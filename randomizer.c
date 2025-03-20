@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_COUNT 299
+#define NUM_COUNT 100
 #define MIN_NUM -3000
 #define MAX_NUM 4000
 

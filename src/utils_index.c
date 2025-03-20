@@ -3,9 +3,9 @@
 //index ops
 void	indexing(stack *head, int argc);
 stack	*find_no_index(stack *temp);
-int		find_indx_middle(stack *head, int arg);
 int		find_indx_max(stack *head, int range);
-int		find_indx_min(stack *head, int range);
+//int		find_indx_middle(stack *head, int arg);
+//int		find_indx_min(stack *head);
 
 
 void indexing(stack *head, int argc)
@@ -77,7 +77,6 @@ int find_indx_max(stack *head, int range)
     int max;
 	int n;
 
-	
     temp = head;
     n = 0;
 	max = temp->index;
@@ -99,54 +98,54 @@ int find_indx_max(stack *head, int range)
 
 }
 
-int find_indx_min(stack *head, int range)
+int find_indx_min(stack *head)
 {
     stack *temp;
 
     int min;
-	int n;
 
     temp = head;
-    n = 0;
 	min = temp->index;
-	while(n < range && temp)
+	while(temp)
 	{
 		if(temp->index < min)
+		{
 			min = temp->index;
+//			printf("Min data %i\n", temp->data);
+		}	
 		temp = temp->next;
-		n++;
 	}
-//printf("\n\n%i\n\n", min);
+ //   printf(" TEST min index %i a\n", min);
     return (min);
 }
 
-int find_indx_middle(stack *head, int range)
-{
-	int min;
-	int max;
-	int mitte;
+////int find_indx_middle(stack *head, int range)
+////{
+////	int min;
+////	int max;
+////	int mitte;
 
-	min = find_indx_min(head, range);
-	max = find_indx_max(head, range);
+////	min = find_indx_min(head);
+////	max = find_indx_max(head, range);
 
-//printf("min %i\n", min);
-//printf("max %i\n", max);
-	mitte = ((max - min) / 2) + min;
-	if((max) % 2 != 0)
-        mitte++;
-//printf("mitte %i\n", mitte);
-//printf("head index %i", (head)->index);
-	return (mitte);
-}
+//////printf("min %i\n", min);
+//////printf("max %i\n", max);
+////	mitte = ((max - min) / 2) + min;
+////	if((max) % 2 != 0)
+////        mitte++;
+//////printf("mitte %i\n", mitte);
+//////printf("head index %i", (head)->index);
+////	return (mitte);
+////}
 
-	// int n;
-	// stack *temp;
+//	// int n;
+//	// stack *temp;
 
 
-	// temp = head;
-	// while(temp)
-	// {
-	// 	mitte = mitte + temp->data / n;
-	// 	temp = temp->next;
-	// 	n++,
-	// }
+//	// temp = head;
+//	// while(temp)
+//	// {
+//	// 	mitte = mitte + temp->data / n;
+//	// 	temp = temp->next;
+//	// 	n++,
+//	// }
