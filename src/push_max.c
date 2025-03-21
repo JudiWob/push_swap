@@ -25,7 +25,7 @@ void go_right_max(stack **head_a, stack **head_b, int *argc, int *argb)
 {
     int max;
 
-    max = find_indx_max(*head_b, INT_MAX);
+    max = find_indx_max(*head_b);
 
     while(*head_b) 
 	{
@@ -56,7 +56,7 @@ void go_left_max(stack **head_a, stack **head_b, int *argc, int *argb)
 {
     int max;
 
-    max = find_indx_max(*head_b, INT_MAX);
+    max = find_indx_max(*head_b);
     while(*head_b) 
 	{
         if ((*head_b)->index == max - 1)

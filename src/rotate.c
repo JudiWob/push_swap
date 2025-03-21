@@ -10,8 +10,8 @@ void ra_left(stack **head, char c)
     stack *last;
     stack *newlast;
 
-    // if (!head || !*head || !(*head)->next)
-    //     printf("o o \n");
+    if (!head || !*head || !(*head)->next)
+        return;
     last = list_getlast(*head);
     newlast = *head;
 

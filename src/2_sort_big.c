@@ -18,6 +18,7 @@ stack 	*sort_big(stack *head_a, int argc);
 void	go_short(stack **head_a, int min_index, int chunksize);
 int		push_to_b(stack **head_a, stack **head_b, int argc, int chunksize);
 void	push_rest_to_b(stack **head_a, stack **head_b, int *argc);
+int ft_remaining(stack *head_a, int min_index, int max_index, int chunksize_rest);
 
 
 void	sort(stack **head_a, int argc)
@@ -68,14 +69,11 @@ int push_to_b(stack **head_a, stack **head_b, int argc, int chunksize)
 	while(argc > chunksize && argc > 30) 
 	{
 		min_index = find_indx_min(*head_a);
-		printf("min index %i\n", min_index);
+//printf("min index %i\n", min_index);
 		count = 0;
-		//if(argc < 30)
-		//	chunksize = argc/3;
-		//while (count <= chunksize)
-		while(count <= chunksize && argc >= chunksize)
+		while(count < chunksize)
 		{
-			if((*head_a)->index <= min_index + chunksize)
+			if((*head_a)->index <= min_index + chunksize -1)
 			{
 				push_px(head_a, head_b, 'b');
 				(argc)--;
@@ -87,59 +85,97 @@ int push_to_b(stack **head_a, stack **head_b, int argc, int chunksize)
 		}
 	}
 	min_index = find_indx_min(*head_a);
-	printf("min index %i\n", min_index);
-	test_print_from_head(*head_a, *head_b);
-	chunksize = 10;
-	//while(argc > chunksize) 
-	//{
-	//	min_index = find_indx_min(*head_a);
-	//	//printf("min index %i\n", min_index);
-	//	count = 0;
-	//	//if(argc < 30)
-	//	//	chunksize = argc/3;
-	//	//while (count <= chunksize)
-	//	while(count <= chunksize && argc >= chunksize)
-	//	{
-	//		if((*head_a)->index <= min_index + chunksize)
-	//		{
-	//			push_px(head_a, head_b, 'b');
-	//			(argc)--;
-	//			count++;
-	//		}
-	//		else
-	//			ra_left(head_a, 'a');
-	//			//go_short(head_a, min_index, chunksize);
-	//	}
-	//}
+	
 	//printf("argc %i", argc);
 	//while(*head_a)
 	//push_px(head_a, head_b, 'b');
 	//exit(EXIT_FAILURE);
-printf("a %i\n", (*head_a)->index);
-printf("b %i\n", (*head_b)->index);
+// printf("a %i\n", (*head_a)->index);
+// printf("b %i\n", (*head_b)->index);
 //test_print_from_head(*head_a, *head_b);	
 	push_rest_to_b(head_a, head_b, &argc);
 //	test_print_from_head(*head_a, *head_b);	
 	return(argc);
 }
 
+
 void push_rest_to_b(stack **head_a, stack **head_b, int *argc)
 {
-	int max_indx;
+	int max_index;
+	int min_index;
+	int count;
+	int rotate = 0;
+	int chunksize_rest;
+	int remaining;
 //	printf("TEST\n");
-	max_indx = find_indx_max(*head_a);
+	max_index = find_indx_max(*head_a);
+	min_index = find_indx_min(*head_a);
+	chunksize_rest = *argc/3;
+	count = 0;
+// exit(EXIT_SUCCESS);
 	while(*argc > 5)
 	{
-		if((*head_a)->index >= max_indx - 5) //99 <= 95
-			ra_left(head_a, 'a');
-		else
+// printf("min index %i\n", min_index);
+// printf("argc %i\n", *argc);
+// printf("chunksize %i\n", chunksize_rest);
+	remaining = ft_remaining(*head_a, min_index, max_index, chunksize_rest);
+// printf("remain %i\n", remaining);
+// test_print_from_head(*head_a, *head_b);
+		while(*argc > 5 && count <= chunksize_rest && remaining > 0)
+		//while(*argc > 5 && count < chunksize_rest -1  && rotate < *argc)
 		{
-			push_px(head_a, head_b, 'b');
-			(*argc)--;
-		}	
+// printf("count %i\n", count);
+
+// // printf("a %i\n", (*head_a)->index);
+// // printf("b %i\n", (*head_b)->index);
+// stack *temp = *head_a;
+// while(temp)
+// {
+// 	printf("a %i\n", (temp)->index);
+// 	(temp) = (temp)->next;
+// }
+			if((*head_a)->index >= max_index - 4) //99 <= 95
+			{
+				//rotate++;
+				ra_left(head_a, 'a');
+			}	
+			else if((*head_a)->index <= min_index + chunksize_rest)
+			{
+				push_px(head_a, head_b, 'b');
+				(*argc)--;
+				count++;
+				remaining--;
+			}
+			else
+			{
+				//rotate++;
+				ra_left(head_a, 'a');
+			}
+		}
+		// printf("remain %i\n", remaining);
+		count = 0;
+		rotate = 0;
+		min_index = find_indx_min(*head_a);
+		chunksize_rest = *argc;
 	}
 	return(sort(head_a, *argc));
 	
+}
+
+int ft_remaining(stack *head_a, int min_index, int max_index, int chunksize_rest)
+{
+	int count;
+
+	count=0;
+	while(head_a)
+	{
+		if(head_a->index <= min_index + chunksize_rest && head_a->index != max_index - 4)
+		{
+			count++;
+		}
+		head_a = head_a->next;
+	}
+	return(count);
 }
 
 
