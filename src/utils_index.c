@@ -3,7 +3,7 @@
 //index ops
 void	indexing(stack *head, int argc);
 stack	*find_no_index(stack *temp);
-int		find_indx_max(stack *head, int range);
+int		find_indx_max(stack *head);
 //int		find_indx_middle(stack *head, int arg);
 //int		find_indx_min(stack *head);
 
@@ -70,17 +70,14 @@ stack	*find_no_index(stack *temp)
 } 
 
 
-int find_indx_max(stack *head, int range)
+int find_indx_max(stack *head)
 {
     stack *temp;
-
     int max;
-	int n;
 
     temp = head;
-    n = 0;
 	max = temp->index;
-	while(n < range && temp)
+	while(temp)
 	{
 //printf(" index %i\n", temp->index);
 //printf("\n  temp data %i\n\n", temp->data);
@@ -91,7 +88,6 @@ int find_indx_max(stack *head, int range)
 		}	
 //		printf("\n data temp %i\n\n", temp->data);
 		temp = temp->next;
-		n++;
 	}
 //printf("\n MAX%i\n", max);
     return (max);

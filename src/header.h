@@ -25,7 +25,7 @@ void go_right_max(stack **head_a, stack **head_b, int *argc, int *argb);
 int find_pos_max(stack *head);
 int find_shortest_way(stack **head, int argb);
 
-void push_to_b(stack **head_a, stack **head_b, int argc, int chunksize);
+int	push_to_b(stack **head_a, stack **head_b, int argc, int chunksize);
 void push_to_a(stack **head_a, stack **head_b, int *argc, int *argb);
 
 //input
@@ -45,7 +45,7 @@ stack 	*list_getlast(stack *head);
 void	indexing(stack *head, int argc);
 stack	*find_no_index(stack *temp);
 //int		find_indx_middle(stack *head, int arg);
-int		find_indx_max(stack *head, int range);
+int		find_indx_max(stack *head);
 int		find_indx_min(stack *head);
 
 //sort
