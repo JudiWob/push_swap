@@ -4,8 +4,7 @@
 void	indexing(stack *head, int argc);
 stack	*find_no_index(stack *temp);
 int		find_indx_max(stack *head);
-//int		find_indx_middle(stack *head, int arg);
-//int		find_indx_min(stack *head);
+int		find_indx_min(stack *head);
 
 
 void indexing(stack *head, int argc)

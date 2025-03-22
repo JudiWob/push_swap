@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsuno <tsuno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:57:33 by tsuno             #+#    #+#             */
-/*   Updated: 2025/03/19 15:03:49 by tsuno            ###   ########.fr       */
+/*   Updated: 2025/03/22 14:56:25 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 void	swap_sx(stack *head, char c);
 void	swap_ss(stack *head_a, stack *head_b);
 void	push_px(stack **head_take, stack **head_put, char c);
+void	rx_left(stack **head, char c);
+void	rrx_right(stack **head, char c);
 
 void	swap_sx(stack *head, char c)
 {
@@ -92,3 +94,50 @@ void	push_px(stack **head_take, stack **head_put, char c)
 }
 
 
+void rx_left(stack **head, char c)
+{
+    stack *last;
+    stack *newlast;
+
+    if (!head || !*head || !(*head)->next)
+        return;
+    last = list_getlast(*head);
+    newlast = *head;
+
+    (*head)->next->prev = NULL; //second node becomes head
+    (*head) = (*head)->next;
+
+    last->next = newlast;
+    newlast->prev = last;
+    newlast->next = NULL;
+
+    if(PRINT)
+       printf("r%c\n", c);
+//test_print_from_last(newlast);
+//printf("%p\n", (*head)->prev);
+
+    return;
+}
+
+void rrx_right(stack **head, char c)
+{
+    stack *last;
+
+    // if (!head || !*head || !(*head)->next)
+    //     printf("o o \n");
+    last = list_getlast(*head);
+
+    last->prev->next = NULL; //node before last points to NULL
+
+    (*head)->prev = last;
+    last->next = (*head);
+    last->prev = NULL;
+
+    *head = last;
+// last = list_getlast(*head);
+// test_print_from_last(last);
+    if(PRINT)
+    printf("rr%c\n", c);
+
+    return;
+}

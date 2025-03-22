@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUM_COUNT 100
+#define NUM_COUNT 500
 #define MIN_NUM -3000
 #define MAX_NUM 4000
 
-// Function to check if a number is already in the array
+// Function to check if a number is already in the arrxy
 int is_unique(int *arr, int num, int count) {
     for (int i = 0; i < count; i++) {
         if (arr[i] == num) {

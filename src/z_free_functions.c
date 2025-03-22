@@ -26,8 +26,13 @@ void	free_exit(char ***argv, int argc, stack *head_a,int success)
 
 void free_argv(char ***argv, int argc)
 {
+	printf("inside free %p\n", argv);
+	printf("%s\n", (*argv)[1]);
+	printf("argc %i\n", argc);
+	
 	if((*argv)[0] == NULL) //input was splitted == argv was allocated
 	{
+		printf("TEST\n");
 		while(argc >= 0)
 		{				
 			free((*argv)[argc]);

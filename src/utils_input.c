@@ -1,12 +1,12 @@
 #include "header.h"
 
 //clean input
-char	**prep_input(int *argc, char **argv);
+char	**split_input(int *argc, char **argv);
 char	*f_atoi(const char *s, int *data);
 char	*check_doubles(stack *head);
 char	*check_sorting(stack *head);
 
-char	**prep_input(int *argc, char **argv)
+char	**split_input(int *argc, char **argv)
 {
 	if (*argc < 2)
 	{

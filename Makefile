@@ -14,7 +14,7 @@ LIBLINK := -L$(LIBDIR) -l$(LIBNAME)  # Link with libft
 
 # Compiler
 CC      := gcc
-CFLAGS  := -Wall -Wextra -Werror
+#CFLAGS  := -Wall -Wextra -Werror
 
 # Executable
 NAME    := pushswap

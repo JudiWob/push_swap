@@ -18,10 +18,8 @@ typedef struct stack{
 #define PRINT 1
 
 
-int     find_pos_index(stack *head, int min_index);
-
-void go_left_max(stack **head_a, stack **head_b, int *argc, int *argb);
-void go_right_max(stack **head_a, stack **head_b, int *argc, int *argb);
+void go_left(stack **head_a, stack **head_b, int *argc, int *argb);
+void go_right(stack **head_a, stack **head_b, int *argc, int *argb);
 int find_pos_max(stack *head);
 int find_shortest_way(stack **head, int argb);
 
@@ -29,7 +27,7 @@ int	push_to_b(stack **head_a, stack **head_b, int argc, int chunksize);
 void push_to_a(stack **head_a, stack **head_b, int *argc, int *argb);
 
 //input
-char	**prep_input(int *argc, char **argv);
+char	**split_input(int *argc, char **argv);
 char	**f_split(char *s, int *argc);
 char	*f_atoi(const char *s, int *data);
 char	*check_doubles(stack *head);
@@ -44,9 +42,11 @@ stack 	*list_getlast(stack *head);
 //index ops
 void	indexing(stack *head, int argc);
 stack	*find_no_index(stack *temp);
-//int		find_indx_middle(stack *head, int arg);
 int		find_indx_max(stack *head);
 int		find_indx_min(stack *head);
+
+int     find_pos_min(stack *head);
+void    min_to_top(stack **head_a, int argc);
 
 //sort
 void	sort(stack **head_a, int argc);
@@ -59,10 +59,8 @@ stack 	*sort_five(stack *head_a);
 void	swap_sx(stack *head, char x);
 void	swap_ss(stack *head_a, stack *head_b);
 void	push_px(stack **head_take, stack **head_put, char c);
-void	ra_left(stack **head, char c);
-void	rra_right(stack **head, char c);
-int     find_pos_min(stack *head);
-void    min_to_top(stack **head_a, int argc);
+void	rx_left(stack **head, char c);
+void	rrx_right(stack **head, char c);
 
 //clean
 void	free_exit(char ***argv, int argc, stack *head_a, int success);

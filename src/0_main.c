@@ -11,26 +11,11 @@
 int main(int argc, char **argv)
 {	
 	stack *head_a;
-	argv = prep_input(&argc, argv);
+	argv = split_input(&argc, argv); //evtl split oder no arguments
 	head_a = createstack(argc, argv);
 	indexing(head_a, argc);
-//printf("argc %i\n",  argc);
 	sort(&head_a, (argc - 1));
-
-//test_print_from_head(head_a, NULL);	
-
-//TESTING
-
-//printf("MAIN TESTS\n");
-// test_print_from_last(list_getlast(head_a));
-
-//printf("index %i\n", head_a->next->data);
-// printf("Pos Max %i\n", findmax(head_a));
-
-//TESTING END
-check_sorting(head_a);
 	free_list (&head_a);
-	//printf("exit\n");
 	return 0;
 }
 

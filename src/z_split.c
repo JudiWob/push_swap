@@ -28,7 +28,7 @@ char	**f_split(char *s, int *argc)
 			j++;
 		}
 		else
-		i++;
+			i++;
 	}
 	return(split[(*argc)] = NULL, split);
 }
@@ -92,17 +92,17 @@ void	freesplit(char **split, int j)
 // 	int j = 0;
 
 // 	split = f_split(s, &argc);
-// 	printf("%s\n", split[0]);
+// 	while(j < argc + 1)
+// 	{
+// 		printf("%i = %s \n", j, split[j]);
+// 		j++;
+// 	}
+// 	//printf("%s\n", split[0]);
 	
 // 	//freesplit(split, argc);
 // }
 
 
-	// while(j < argc + 1)
-	// {
-	// 	printf("%i = %s \n", j, split[j]);
-	// 	j++;
-	// }
 
 
 
