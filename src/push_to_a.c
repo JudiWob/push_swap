@@ -1,13 +1,13 @@
 #include "header.h"
 
 //
-void	push_to_a(stack **head_a, stack **head_b, int *argc, int *argb);
-void	go_left(stack **head_a, stack **head_b, int *argc, int *argb);
-void	go_right(stack **head_a, stack **head_b, int *argc, int *argb);
-int		find_pos_max(stack *head);
-int		find_shortest_way(stack **head, int argb);
+void	push_to_a(t_stack **head_a, t_stack **head_b, int *argc, int *argb);
+void	go_left(t_stack **head_a, t_stack **head_b, int *argc, int *argb);
+void	go_right(t_stack **head_a, t_stack **head_b, int *argc, int *argb);
+int		find_pos_max(t_stack *head);
+int		find_shortest_way(t_stack **head, int argb);
 
-void push_to_a(stack **head_a, stack **head_b, int *argc, int *argb)
+void push_to_a(t_stack **head_a, t_stack **head_b, int *argc, int *argb)
 {
     int direction;
 
@@ -21,7 +21,7 @@ void push_to_a(stack **head_a, stack **head_b, int *argc, int *argb)
 	return;
 }
 
-void go_right(stack **head_a, stack **head_b, int *argc, int *argb)
+void go_right(t_stack **head_a, t_stack **head_b, int *argc, int *argb)
 {
     int max;
 
@@ -50,7 +50,7 @@ void go_right(stack **head_a, stack **head_b, int *argc, int *argb)
  //printf("head b index %i\n", (*head_b)->index);
 }
 
-void go_left(stack **head_a, stack **head_b, int *argc, int *argb)
+void go_left(t_stack **head_a, t_stack **head_b, int *argc, int *argb)
 {
     int max;
 
@@ -78,7 +78,7 @@ void go_left(stack **head_a, stack **head_b, int *argc, int *argb)
     return;
 }
 
-int find_shortest_way(stack **head, int argb)
+int find_shortest_way(t_stack **head, int argb)
 {
     int pos_max;
     int direction;
@@ -93,9 +93,9 @@ int find_shortest_way(stack **head, int argb)
     return (direction);
 }
 
-int find_pos_max(stack *head)
+int find_pos_max(t_stack *head)
 {
-   stack   *max;
+   t_stack   *max;
    int     n;
    int     pos;
 

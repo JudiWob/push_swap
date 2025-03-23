@@ -1,96 +1,101 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_list.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 16:23:50 by jpaselt           #+#    #+#             */
+/*   Updated: 2025/03/23 16:27:38 by jpaselt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-//list functions
-stack	*list_newnode(int data);
-stack	*list_addlast(int data, stack **last, stack **head);
-stack	*list_getlast(stack *head);
+t_stack	*list_newnode(long data);
+t_stack	*list_addlast(long data, t_stack **last, t_stack **head);
+t_stack	*list_getlast(t_stack *head);
 
-stack	*list_newnode(int data)
+t_stack	*list_newnode(long data)
 {
-	stack *new;
+	t_stack	*new;
 
-	new = malloc(sizeof(stack));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->data = data;
 	new->index = 0;
 	new->next = NULL;
 	new->prev = NULL;
-	return new;
+	return (new);
 }
 
-stack	*list_addlast(int data, stack **last, stack **head)
+t_stack	*list_addlast(long data, t_stack **last, t_stack **head)
 {
-	stack *new;
-	
-	if(*head == NULL) //if first node
+	t_stack	*new;
+
+	if (*head == NULL)
 	{
-		*head = list_newnode(data); //create head
-		return (*head); //malloc error included
+		*head = list_newnode(data);
+		return (*head);
 	}
-	new =  list_newnode(data); //create new node
-	if(!new)
-		return (printf("fail toooo create stack\n"),new);
-	(*last)->next = new; //connect last to new
-	new->prev = *last; //connect new to last
-	*last = new; //update last node 
-	return *last;
+	new = list_newnode(data);
+	if (!new)
+		return (NULL);
+	(*last)->next = new;
+	new->prev = *last;
+	*last = new;
+	return (*last);
 }
 
-stack *list_getlast(stack *head)
+t_stack	*list_getlast(t_stack *head)
 {
-	stack *last;
-	
+	t_stack	*last;
+
 	last = head;
-	while(last->next)
+	while (last->next)
 	{
 		last = last->next;
 	}
 	return (last);
 }
 
-
 /// ////////////////////////////////////////////
-void	test_print_from_head(stack *a, stack *b)
+void	test_print_from_head(t_stack *a, t_stack *b)
 {
-	// if(head == NULL)
-	// 	printf(" NULL\n");
-	//else
-	printf("\n Stack A      Stack B \n");
-    printf("----------------------\n");
-
-    // Iterate through both stacks simultaneously
-    while (a || b) {
-        if (a) {
-            printf(" %5d", a->data);
-            a = a->next;
-        } else {
-            printf("      "); // Empty space if Stack A is shorter
-        }
-
-        printf("    |    "); // Separator
-
-        if (b) {
-            printf("%5d", b->data);
-            b = b->next;
-        }
-
-        printf("\n"); // Newline for the next row
-    }
-    
-    printf("----------------------\n");
-	return;
+	printf("\n t_stack A      t_stack B \n");
+	printf("----------------------\n");
+	while (a || b)
+	{
+		if (a)
+		{
+			printf(" %5ld", a->data);
+			a = a->next;
+		}
+		else
+		{
+			printf("      ");
+		}
+		printf("    |    ");
+		if (b)
+		{
+			printf("%5ld", b->data);
+			b = b->next;
+		}
+		printf("\n");
+	}
+	printf("----------------------\n");
+	return ;
 }
 
-void	test_print_from_last(stack *last)
+void	test_print_from_last(t_stack *last)
 {
 	printf("\n");
-	
 	while (last)
 	{
-		printf("%d\n", last->data);
+		printf("%ld\n", last->data);
 		last = last->prev;
 	}
 	printf("From Last: ");
-	return;
+	return ;
 }

@@ -1,60 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   z_free_functions.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 16:24:18 by jpaselt           #+#    #+#             */
+/*   Updated: 2025/03/23 16:24:55 by jpaselt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-//free functions
-void 	free_exit(char ***argv, int argc, stack *head_a, int success);
-void 	free_argv(char ***argv, int argc);
-void	free_list(stack **head);
+void	free_exit(char ***argv, int argc, t_stack *head_a, int success);
+void	free_argv(char ***argv, int argc);
+void	free_list(t_stack **head);
 
-void	free_exit(char ***argv, int argc, stack *head_a,int success)
+void	free_exit(char ***argv, int argc, t_stack *head_a, int success)
 {
-	if((*argv)[0] == NULL) //input was splitted == argv was allocated
+	if ((*argv)[0] == NULL)
 	{
-		while(argc >= 0)
-		{				
+		while (argc >= 0)
+		{
 			free((*argv)[argc]);
 			argc--;
-		}			
+		}
 		free(*argv);
 		*argv = NULL;
 	}
 	free_list(&head_a);
-	if(success == 0)
-		{printf("exit success\n");exit(EXIT_SUCCESS);}
+	if (success == 0)
+	{
+		exit(EXIT_SUCCESS);
+	}
 	else
-		{printf("exit failure\n");exit(EXIT_SUCCESS);}
+	{
+		printf("ERROR\n");
+		exit(EXIT_SUCCESS);
+	}
 }
 
-void free_argv(char ***argv, int argc)
+void	free_argv(char ***argv, int argc)
 {
-	printf("inside free %p\n", argv);
-	printf("%s\n", (*argv)[1]);
-	printf("argc %i\n", argc);
-	
-	if((*argv)[0] == NULL) //input was splitted == argv was allocated
+	if ((*argv)[0] == NULL)
 	{
-		printf("TEST\n");
-		while(argc >= 0)
-		{				
+		while (argc >= 0)
+		{
 			free((*argv)[argc]);
 			argc--;
-		}			
+		}
 		free(*argv);
 		*argv = NULL;
 	}
-	return;
+	return ;
 }
 
-void	free_list(stack **head)
+void	free_list(t_stack **head)
 {
-	stack *temp;
+	t_stack	*temp;
 
 	temp = *head;
-	while(*head)
+	while (*head)
 	{
 		temp = (*head)->next;
-		//free((*head)->data);
 		free(*head);
 		*head = temp;
 	}
 }
-

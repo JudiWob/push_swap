@@ -1,146 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_index.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 16:23:16 by jpaselt           #+#    #+#             */
+/*   Updated: 2025/03/23 16:23:22 by jpaselt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-//index ops
-void	indexing(stack *head, int argc);
-stack	*find_no_index(stack *temp);
-int		find_indx_max(stack *head);
-int		find_indx_min(stack *head);
+// index ops
+void	indexing(t_stack *head, int argc);
+t_stack	*find_no_index(t_stack *temp);
+int		find_indx_max(t_stack *head);
+int		find_indx_min(t_stack *head);
 
-
-void indexing(stack *head, int argc)
+void	indexing(t_stack *head, int argc)
 {
-    //stack *temp;
-    stack *min_node;
-    int index;
+	t_stack	*min_node;
+	t_stack	*temp;
+	int		index;
 
-    index = 1;
-   // temp = head;
-    while (index <= argc)
-    {
-        
-        //printf("Looking for node with index %d\n", index);
-        min_node = find_no_index(head);
-        if (min_node)
-        {
-           // printf("Found node with data %d, assigning index %d\n", min_node->data, index);
-            min_node->index = index;
-            index++;
-        }
-        else
-        {
-          //  printf("No unindexed node found, breaking\n");
-            break;
-        }
-    }
-
-    // Print all nodes after indexing
-    stack *temp = head;
-    while (temp)
-    {
-     //   printf("Node data: %d, index: %d\n", temp->data, temp->index);
-        temp = temp->next;
-    }
-
-// printf("INDEX 2: %i\n", head->index);
-// printf("INDEX 1: %i\n", head->next->index);
-// printf("INDEX 7: %i\n", head->next->next->index);
-// printf("INDEX 4: %i\n", head->next->next->next->index);
-// printf("index %i\n", head->index);
+	index = 1;
+	while (index <= argc)
+	{
+		min_node = find_no_index(head);
+		if (min_node)
+		{
+			min_node->index = index;
+			index++;
+		}
+		else
+		{
+			break ;
+		}
+	}
 	return ;
 }
 
-stack	*find_no_index(stack *temp)
+t_stack	*find_no_index(t_stack *temp)
 {
-	int min;
-	stack *min_node;
+	int		min;
+	t_stack	*min_node;
 
 	min_node = NULL;
 	min = INT_MAX;
 	while (temp)
-    {
+	{
 		if (temp->data < min && temp->index == 0)
-        {
+		{
 			min = temp->data;
-            min_node = temp;
-        }
-        temp = temp->next;
+			min_node = temp;
+		}
+		temp = temp->next;
 	}
 	return (min_node);
-} 
+}
 
-
-int find_indx_max(stack *head)
+int	find_indx_max(t_stack *head)
 {
-    stack *temp;
-    int max;
+	t_stack	*temp;
+	int		max;
 
-    temp = head;
+	temp = head;
 	max = temp->index;
-	while(temp)
+	while (temp)
 	{
-//printf(" index %i\n", temp->index);
-//printf("\n  temp data %i\n\n", temp->data);
-		if(temp->index > max)
+		if (temp->index > max)
 		{
 			max = temp->index;
-//printf("\n  temp data %i\n\n", temp->data);
-		}	
-//		printf("\n data temp %i\n\n", temp->data);
+		}
 		temp = temp->next;
 	}
-//printf("\n MAX%i\n", max);
-    return (max);
-
+	return (max);
 }
 
-int find_indx_min(stack *head)
+int	find_indx_min(t_stack *head)
 {
-    stack *temp;
+	t_stack	*temp;
+	int		min;
 
-    int min;
-
-    temp = head;
+	temp = head;
 	min = temp->index;
-	while(temp)
+	while (temp)
 	{
-		if(temp->index < min)
+		if (temp->index < min)
 		{
 			min = temp->index;
-//			printf("Min data %i\n", temp->data);
-		}	
+		}
 		temp = temp->next;
 	}
- //   printf(" TEST min index %i a\n", min);
-    return (min);
+	return (min);
 }
-
-////int find_indx_middle(stack *head, int range)
-////{
-////	int min;
-////	int max;
-////	int mitte;
-
-////	min = find_indx_min(head);
-////	max = find_indx_max(head, range);
-
-//////printf("min %i\n", min);
-//////printf("max %i\n", max);
-////	mitte = ((max - min) / 2) + min;
-////	if((max) % 2 != 0)
-////        mitte++;
-//////printf("mitte %i\n", mitte);
-//////printf("head index %i", (head)->index);
-////	return (mitte);
-////}
-
-//	// int n;
-//	// stack *temp;
-
-
-//	// temp = head;
-//	// while(temp)
-//	// {
-//	// 	mitte = mitte + temp->data / n;
-//	// 	temp = temp->next;
-//	// 	n++,
-//	// }

@@ -1,70 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/23 16:23:30 by jpaselt           #+#    #+#             */
+/*   Updated: 2025/03/23 16:33:13 by jpaselt          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-//clean input
 char	**split_input(int *argc, char **argv);
-char	*f_atoi(const char *s, int *data);
-char	*check_doubles(stack *head);
-char	*check_sorting(stack *head);
+char	*f_atoi(const char *s, long *data);
+char	*check_doubles(t_stack *head);
+char	*check_sorting(t_stack *head);
+char	*check_int_size(long data);
 
 char	**split_input(int *argc, char **argv)
 {
 	if (*argc < 2)
 	{
-		printf("%s", "No arguments\n");
 		exit(EXIT_FAILURE);
-	}	
+	}
 	if (*argc == 2)
 	{
-		argv = f_split(argv[1], argc);	//split argv[1]
-		if(!argv)						//exit: malloc failure while f_split
+		argv = f_split(argv[1], argc);
+		if (!argv)
 		{
-			printf("fail to split\n");
 			exit(EXIT_FAILURE);
 		}
 	}
-	return(argv); //argv is split now if argc==2, or nothing happend if argc>2
+	return (argv);
 }
 
-char	*f_atoi(const char *s, int *data)
+char	*f_atoi(const char *s, long *data)
 {
-	int i;
-	int sign;
+	int	i;
+	int	sign;
 
 	sign = 1;
 	*data = 0;
 	i = 0;
 	while (s[i])
 	{
-		if(s[i] == '-')
+		if (s[i] == '-')
 		{
 			sign = -1;
 			i++;
-		}	
-		if(s[i] < '0' || s[i] > '9')
+		}
+		if (s[i] < '0' || s[i] > '9')
 		{
-			printf("false character\n");
 			return (NULL);
-		}	
+		}
 		*data = ((*data) * 10) + (s[i] - 48);
 		i++;
 	}
+	if (!check_int_size(*data))
+		return (NULL);
 	*data = *data * sign;
 	return ("ok");
 }
 
-char	*check_doubles(stack *head)
+char	*check_int_size(long data)
 {
-	stack *temp;
-
-	if(!head || !head->next)
-		return NULL;
-	temp = head->next;
-	while(head->next)
+	if (data > INT_MAX || data < INT_MIN)
 	{
-		while(temp)
+		return (NULL);
+	}
+	else
+		return ("int size ok");
+}
+
+char	*check_doubles(t_stack *head)
+{
+	t_stack	*temp;
+
+	if (!head || !head->next)
+		return (NULL);
+	temp = head->next;
+	while (head->next)
+	{
+		while (temp)
 		{
-			if(head->data == temp->data)
-				return (printf("Double!\n"), NULL);
+			if (head->data == temp->data)
+				return (NULL);
 			temp = temp->next;
 		}
 		temp = head->next->next;
@@ -73,25 +94,21 @@ char	*check_doubles(stack *head)
 	return ("ok");
 }
 
-char	*check_sorting(stack *head)
+char	*check_sorting(t_stack *head)
 {
-	stack *temp;
+	t_stack	*temp;
 
-	if(!head || !head->next)
+	if (!head || !head->next)
 		return (NULL);
-	
 	temp = head;
-	while(temp->next)
+	while (temp->next)
 	{
-		if(temp->data > temp->next->data)
+		if (temp->data > temp->next->data)
 		{
-			printf("NOT SORTED %i\n", temp->data);
-			//printf("NOT SORTED %i", temp->prev->index);
-			//printf("NOT SORTED %i\n", temp->index);
-			//printf("NOT SORTED %i\n", temp->next->index);
 			return (NULL);
-		}	
+		}
 		temp = temp->next;
 	}
-	return (printf("SORTED!\n"),"sorted");
+	return ("sorted");
 }
+

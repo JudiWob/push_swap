@@ -6,71 +6,70 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:38:29 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/22 14:59:36 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/23 15:41:50 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-//sort few
-void	sort_two(stack *head);
-stack	*sort_three(stack *head);
-stack	*sort_four(stack *head_a);
-stack	*sort_five(stack *head_a);
+// sort few
+void	sort_two(t_stack *head);
+t_stack	*sort_three(t_stack *head);
+t_stack	*sort_four(t_stack *head_a);
+t_stack	*sort_five(t_stack *head_a);
 
-
-void	sort_two(stack *head)
+void	sort_two(t_stack *head)
 {
-	if(head->data > head->next->data)
-			swap_sx(head, 'a');
-	return;
+	if (head->data > head->next->data)
+		swap_sx(head, 'a');
+	return ;
 }
 
-stack *sort_three(stack *head)
+t_stack	*sort_three(t_stack *head)
 {
-    if (head->data > head->next->data && head->data > head->next->next->data) // Largest Element at top (645 und 654)
-    {
-        rx_left(&head, 'a'); //becomes 456 oder 
-        if (head->data > head->next->data) //546
-            swap_sx(head, 'a'); // becomes 456
-    }
-    else if (head->data < head->next->data
-	&& head->next->data > head->next->next->data) // Largest Element at in middle (564 und 465)
-    {
-        rrx_right(&head, 'a'); // becomes 456 oder
-        if (head->data > head->next->data) //546
-            swap_sx(head, 'a'); // becomes 456
-    }
-    else if (head->data > head->next->data) // Largest Element at bottom (456 und 546)
-    {
-    	swap_sx(head, 'a');
-    }
+	if (head->data > head->next->data && head->data > head->next->next->data)
+	{
+		rx_left(&head, 'a');
+		if (head->data > head->next->data)
+			swap_sx(head, 'a');
+	}
+	else if (head->data < head->next->data
+		&& head->next->data > head->next->next->data)
+	{
+		rrx_right(&head, 'a');
+		if (head->data > head->next->data)
+			swap_sx(head, 'a');
+	}
+	else if (head->data > head->next->data)
+	{
+		swap_sx(head, 'a');
+	}
 	return (head);
 }
 
-stack	*sort_four(stack *head_a)
+t_stack	*sort_four(t_stack *head_a)
 {
-	stack *head_b;
-    head_b = NULL;
-	
+	t_stack	*head_b;
+
+	head_b = NULL;
 	min_to_top(&head_a, 4);
 	push_px(&head_a, &head_b, 'a');
-    head_a = sort_three(head_a);// Now sort the top 3
+	head_a = sort_three(head_a);
 	push_px(&head_b, &head_a, 'b');
-    return (head_a);
+	return (head_a);
 }
 
-stack	*sort_five(stack *head_a)
+t_stack	*sort_five(t_stack *head_a)
 {
-	stack *head_b;
+	t_stack	*head_b;
 
-    head_b = NULL;
-    min_to_top(&head_a, 5);
-	push_px(&head_a, &head_b, 'a');
-    min_to_top(&head_a, 4);
-    push_px(&head_a, &head_b, 'a');
-    head_a = sort_three(head_a);// Now sort the top 3
-	push_px(&head_b, &head_a, 'b');
-    push_px(&head_b, &head_a, 'b');
-    return (head_a);
+	head_b = NULL;
+	min_to_top(&head_a, 5);
+	push_px(&head_a, &head_b, 'b');
+	min_to_top(&head_a, 4);
+	push_px(&head_a, &head_b, 'b');
+	head_a = sort_three(head_a);
+	push_px(&head_b, &head_a, 'a');
+	push_px(&head_b, &head_a, 'a');
+	return (head_a);
 }

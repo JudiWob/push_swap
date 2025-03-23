@@ -17,7 +17,7 @@ CC      := gcc
 #CFLAGS  := -Wall -Wextra -Werror
 
 # Executable
-NAME    := pushswap
+NAME    := push_swap
 
 # Source and Object Files
 SRCS    := $(wildcard $(SRCDIR)/*.c) 
