@@ -6,16 +6,16 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:39:46 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 16:31:12 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/23 18:36:06 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 # include "limits.h"
-# include "stdio.h"
+# include "stdlib.h"
 
 typedef struct stack
 {
@@ -66,7 +66,7 @@ int		push_to_b(t_stack **head_a, t_stack **head_b, int argc, int chunksize);
 void	push_to_a(t_stack **head_a, t_stack **head_b, int *argc, int *argb);
 int		find_pos_min(t_stack *head);
 void	min_to_top(t_stack **head_a, int argc);
-void	loop(t_stack **head_a, t_stack **head_b, int *argc, int chunksize);
+//void	loop(t_stack **head_a, t_stack **head_b, int *argc, int chunksize);
 
 //operations
 void	swap_sx(t_stack *head, char x);

@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:23:16 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 16:23:22 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/23 17:21:35 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		find_indx_min(t_stack *head);
 void	indexing(t_stack *head, int argc)
 {
 	t_stack	*min_node;
-	t_stack	*temp;
 	int		index;
 
 	index = 1;

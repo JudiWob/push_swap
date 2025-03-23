@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:24:18 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 16:24:55 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/23 18:51:41 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_exit(char ***argv, int argc, t_stack *head_a, int success)
 	}
 	else
 	{
-		printf("ERROR\n");
+		write(2, "ERROR\n", 6);
 		exit(EXIT_SUCCESS);
 	}
 }

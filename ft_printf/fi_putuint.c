@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_main.c                                           :+:      :+:    :+:   */
+/*   fi_putuint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 19:37:11 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 18:20:38 by jpaselt          ###   ########.fr       */
+/*   Created: 2024/12/04 10:41:48 by jpaselt           #+#    #+#             */
+/*   Updated: 2024/12/09 14:53:29 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	fi_putuint(unsigned int num)
 {
-	t_stack	*head_a;
+	int	count;
 
-	argv = split_input(&argc, argv);
-	head_a = createt_stack(argc, argv);
-	indexing(head_a, argc);
-	sort(&head_a, (argc - 1));
-//	check_sorting(head_a);
-//	test_print_from_head(head_a, NULL);
-	free_list (&head_a);
-	return (0);
+	count = 0;
+	if (num / 10)
+		count += fi_putuint(num / 10);
+	fi_putchar((num % 10) + 48);
+	count++;
+	return (count);
 }
+
+// int main()
+// {
+// 	int num = -87857;
+// 	putuint(num);
+// 	printf("\n%u", num);
+// }

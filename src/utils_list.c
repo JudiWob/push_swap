@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:23:50 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 16:27:38 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/23 17:47:40 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,39 +63,39 @@ t_stack	*list_getlast(t_stack *head)
 /// ////////////////////////////////////////////
 void	test_print_from_head(t_stack *a, t_stack *b)
 {
-	printf("\n t_stack A      t_stack B \n");
-	printf("----------------------\n");
+	ft_printf("\n t_stack A      t_stack B \n");
+	ft_printf("----------------------\n");
 	while (a || b)
 	{
 		if (a)
 		{
-			printf(" %5ld", a->data);
+			ft_printf(" %i", a->data);
 			a = a->next;
 		}
 		else
 		{
-			printf("      ");
+			ft_printf("      ");
 		}
-		printf("    |    ");
+		ft_printf("    |    ");
 		if (b)
 		{
-			printf("%5ld", b->data);
+			ft_printf("%i", b->data);
 			b = b->next;
 		}
-		printf("\n");
+		ft_printf("\n");
 	}
-	printf("----------------------\n");
+	ft_printf("----------------------\n");
 	return ;
 }
 
 void	test_print_from_last(t_stack *last)
 {
-	printf("\n");
+	ft_printf("\n");
 	while (last)
 	{
-		printf("%ld\n", last->data);
+		ft_printf("%i\n", last->data);
 		last = last->prev;
 	}
-	printf("From Last: ");
+	ft_printf("From Last: ");
 	return ;
 }

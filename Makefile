@@ -1,53 +1,49 @@
 
-# Directories
+## Directories
 SRCDIR  := src
 OBJDIR  := obj
-LIBDIR  := libft
+PRINTF_DIR := ft_printf   # Directory containing ft_printf implementation
 
 # Library
-LIBNAME := ft
-LIBA    := $(LIBDIR)/lib$(LIBNAME).a
-#Hey, also check the lib/ folder when looking for header files.
-LIBINC  := -I$(LIBDIR)
-#where to find the compiled library and how to link it.
-LIBLINK := -L$(LIBDIR) -l$(LIBNAME)  # Link with libft
+PRINTF_LIBA    := $(PRINTF_DIR)/libftprintf.a  # Assuming ft_printf is built into a static library
+PRINTF_LIBINC  := -I$(PRINTF_DIR)  # Include directory for ft_printf headers
 
 # Compiler
-CC      := gcc
-#CFLAGS  := -Wall -Wextra -Werror
+CC      := cc
+CFLAGS  := -Wall -Wextra -Werror
 
 # Executable
 NAME    := push_swap
 
 # Source and Object Files
 SRCS    := $(wildcard $(SRCDIR)/*.c) 
-#OBJS    := $(SRCS:.c=.o)
-OBJS := $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJS    := $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 # Rules
-all: $(LIBA) $(NAME)
+all: $(PRINTF_LIBA) $(NAME)
 
-$(NAME): $(OBJS) $(LIBA)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBLINK) -o $(NAME)
+$(NAME): $(OBJS) $(PRINTF_LIBA)
+	$(CC) $(CFLAGS) $(OBJS) $(PRINTF_LIBINC) -L$(PRINTF_DIR) -lftprintf -o $(NAME)
 
-#Ensures object files are compiled into obj/.
+# Ensures object files are compiled into obj/.
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-#Creates the obj directory if it doesn't exist.
+# Creates the obj directory if it doesn't exist.
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
-$(LIBA):
-	@make -C $(LIBDIR)
-	
+# Build ft_printf static library
+$(PRINTF_LIBA):
+	@make -C $(PRINTF_DIR)
+
 clean:
 	@rm -rf $(OBJDIR) 
-	@make -C $(LIBDIR) clean
+	@make -C $(PRINTF_DIR) clean
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C $(LIBDIR) fclean
+	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_main.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 19:37:11 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 18:20:38 by jpaselt          ###   ########.fr       */
+/*   Created: 2024/11/30 12:24:33 by jpaselt           #+#    #+#             */
+/*   Updated: 2024/12/09 15:12:55 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(int argc, char **argv)
-{
-	t_stack	*head_a;
+# include <stdarg.h>
+# include <unistd.h>
+# include <limits.h>
 
-	argv = split_input(&argc, argv);
-	head_a = createt_stack(argc, argv);
-	indexing(head_a, argc);
-	sort(&head_a, (argc - 1));
-//	check_sorting(head_a);
-//	test_print_from_head(head_a, NULL);
-	free_list (&head_a);
-	return (0);
-}
+int	ft_printf(const char *s, ...);
+int	fi_putchar(int c);
+int	fi_putstr(char *s);
+int	fi_putnbr(int num);
+int	fi_puthex(unsigned long num, char c);
+int	fi_putptr(unsigned long address);
+int	fi_putuint(unsigned int num);
+
+#endif

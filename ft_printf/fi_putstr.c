@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_main.c                                           :+:      :+:    :+:   */
+/*   fi_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/22 19:37:11 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 18:20:38 by jpaselt          ###   ########.fr       */
+/*   Created: 2024/12/04 11:02:17 by jpaselt           #+#    #+#             */
+/*   Updated: 2025/01/02 15:35:38 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	fi_putstr(char *s)
 {
-	t_stack	*head_a;
+	int	i;
 
-	argv = split_input(&argc, argv);
-	head_a = createt_stack(argc, argv);
-	indexing(head_a, argc);
-	sort(&head_a, (argc - 1));
-//	check_sorting(head_a);
-//	test_print_from_head(head_a, NULL);
-	free_list (&head_a);
-	return (0);
+	i = 0;
+	if (s == NULL)
+	{
+		fi_putstr("(null)");
+		return (6);
+	}
+	while (s[i])
+	{
+		fi_putchar(s[i]);
+		i++;
+	}
+	return (i);
 }
+
+// int main()
+// {
+// 	printf("%d", fi_putstr("nil\n"));
+// }
+/*
+return
+int - num of chars printed
+if write function fails, you return (-1);
+*/
