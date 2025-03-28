@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:50:50 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 18:48:07 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/28 15:50:14 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_stack	*createt_stack(int argc, char **argv)
 		if (!last_a)
 			free_exit(&original_argv, original_argc, head_a, -1);
 	}
-	ft_printf("TEST\n");
 	if (!check_doubles(head_a))
 		free_exit(&original_argv, original_argc, head_a, -1);
 	if ((check_sorting(head_a)))

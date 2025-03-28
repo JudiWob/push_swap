@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"chrono": "c",
-		"arrxy": "c",
-		"string": "c",
-		"string_view": "c",
-		"vector": "c"
-	}
-}
