@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:54:45 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 16:54:49 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/30 15:08:12 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ static int	count_words(char *s)
 			count++;
 		i++;
 	}
+	if (count == 1)
+		exit(EXIT_SUCCESS);
 	return (count);
 }
 

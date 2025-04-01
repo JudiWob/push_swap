@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 21:38:29 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/28 15:46:22 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/30 16:17:18 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ t_stack	*sort_four(t_stack *head_a)
 
 	head_b = NULL;
 	min_to_top(&head_a, 4);
-	push_px(&head_a, &head_b, 'a');
+	push_px(&head_a, &head_b, 'b');
 	head_a = sort_three(head_a);
-	push_px(&head_b, &head_a, 'b');
+	push_px(&head_b, &head_a, 'a');
 	return (head_a);
 }
 

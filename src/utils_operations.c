@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 19:57:33 by tsuno             #+#    #+#             */
-/*   Updated: 2025/03/23 18:01:32 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/30 14:58:18 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 // push and swap operations
 void	swap_sx(t_stack *head, char c);
-void	swap_ss(t_stack *head_a, t_stack *head_b);
 void	push_px(t_stack **head_take, t_stack **head_put, char c);
 void	rx_left(t_stack **head, char c);
 void	rrx_right(t_stack **head, char c);
@@ -38,15 +37,6 @@ void	swap_sx(t_stack *head, char c)
 			return ;
 		ft_printf("s%c\n", c);
 	}
-	return ;
-}
-
-void	swap_ss(t_stack *head_a, t_stack *head_b)
-{
-	swap_sx(head_a, ' ');
-	swap_sx(head_b, ' ');
-	if (PRINT)
-		ft_printf("%s", "ss");
 	return ;
 }
 

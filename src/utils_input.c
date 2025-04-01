@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:23:30 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 18:48:37 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/30 15:06:27 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ char	**split_input(int *argc, char **argv)
 {
 	if (*argc < 2)
 	{
-		ft_printf("ERROR\n");
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	}
 	if (*argc == 2)
 	{
@@ -44,16 +43,16 @@ char	*f_atoi(const char *s, long *data)
 	sign = 1;
 	*data = 0;
 	i = 0;
-	if (s[i] == '-')
+	if (s[i] == '-' || s[i] == '+')
 	{
-		sign = -1;
+		if (s[i] == '-')
+			sign = -1;
 		i++;
 	}
 	while (s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')
 		{
-			//ft_printf("ERROR1\n");
 			return (NULL);
 		}
 		*data = ((*data) * 10) + (s[i] - 48);
@@ -111,6 +110,5 @@ char	*check_sorting(t_stack *head)
 		}
 		temp = temp->next;
 	}
-	ft_printf("OK\n");
 	return ("sorted");
 }

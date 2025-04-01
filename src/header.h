@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 15:39:46 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 18:36:06 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/30 16:24:36 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 # define HEADER_H
 
 # include "../ft_printf/ft_printf.h"
-# include "limits.h"
 # include "stdlib.h"
 
-typedef struct stack
+typedef struct s_stack
 {
 	long			data;
 	int				index;
-	struct stack	*next;
-	struct stack	*prev;
+	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
 # define EXIT_FAILURE 1
@@ -66,7 +65,7 @@ int		push_to_b(t_stack **head_a, t_stack **head_b, int argc, int chunksize);
 void	push_to_a(t_stack **head_a, t_stack **head_b, int *argc, int *argb);
 int		find_pos_min(t_stack *head);
 void	min_to_top(t_stack **head_a, int argc);
-//void	loop(t_stack **head_a, t_stack **head_b, int *argc, int chunksize);
+void	loop(t_stack **head_a, t_stack **head_b, int *argc, int chunksize);
 
 //operations
 void	swap_sx(t_stack *head, char x);
@@ -79,9 +78,5 @@ void	rrx_right(t_stack **head, char c);
 void	free_exit(char ***argv, int argc, t_stack *head_a, int success);
 void	free_argv(char ***argv, int argc);
 void	free_list(t_stack **head);
-
-//test
-void	test_print_from_last(t_stack *last);
-void	test_print_from_head(t_stack *a, t_stack *b);
 
 #endif

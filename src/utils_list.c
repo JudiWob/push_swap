@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:23:50 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/23 17:47:40 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/03/30 14:56:59 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,44 +58,4 @@ t_stack	*list_getlast(t_stack *head)
 		last = last->next;
 	}
 	return (last);
-}
-
-/// ////////////////////////////////////////////
-void	test_print_from_head(t_stack *a, t_stack *b)
-{
-	ft_printf("\n t_stack A      t_stack B \n");
-	ft_printf("----------------------\n");
-	while (a || b)
-	{
-		if (a)
-		{
-			ft_printf(" %i", a->data);
-			a = a->next;
-		}
-		else
-		{
-			ft_printf("      ");
-		}
-		ft_printf("    |    ");
-		if (b)
-		{
-			ft_printf("%i", b->data);
-			b = b->next;
-		}
-		ft_printf("\n");
-	}
-	ft_printf("----------------------\n");
-	return ;
-}
-
-void	test_print_from_last(t_stack *last)
-{
-	ft_printf("\n");
-	while (last)
-	{
-		ft_printf("%i\n", last->data);
-		last = last->prev;
-	}
-	ft_printf("From Last: ");
-	return ;
 }
