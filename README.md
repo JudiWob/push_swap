@@ -33,8 +33,10 @@ The input must be a list of integers separated by spaces.
 -Negative numbers are allowed.
 -The program assumes valid input; invalid input (e.g., non-integer values) will result in an error.
 Example input:
-$./pushswap 7 2 1 
+$./pushswap 7 2 1
+
 or
+
 $./pushswap "7 2 1" 
 
 The output represents the sequence of operations needed to sort stack A.
