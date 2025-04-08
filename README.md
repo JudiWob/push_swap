@@ -8,6 +8,8 @@ The program must output the sequence of operations required to achieve a sorted 
 
 The challenge lies in finding an efficient way to sort the numbers while adhering to the constraints.
 
+/////////
+
 Allowed operations:
 
 sa: Swap the first two elements of stack A.
@@ -32,6 +34,7 @@ rrb: Reverse rotate stack B (move the last element to the top).
 
 rrr: Perform rra and rrb simultaneously.
 
+/////////
 
 The input must be a list of integers separated by spaces.
 
