@@ -6,7 +6,7 @@
 /*   By: jpaselt <jpaselt@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:23:30 by jpaselt           #+#    #+#             */
-/*   Updated: 2025/03/30 15:06:27 by jpaselt          ###   ########.fr       */
+/*   Updated: 2025/04/17 19:07:09 by jpaselt          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*f_atoi(const char *s, long *data)
 
 char	*check_int_size(long data)
 {
-	if (data > INT_MAX || data < INT_MIN)
+	if (data >= INT_MAX || data <= INT_MIN)
 	{
 		return (NULL);
 	}
