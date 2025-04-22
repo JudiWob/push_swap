@@ -1,56 +1,49 @@
-Push_swap is a sorting algorithm project designed for the 42 curriculum, written in C.
+# push_swap
 
-The goal of the program is to sort a stack of integers from standard input using the fewest number of operations possible.
+> 🎯 A sorting algorithm challenge using only two stacks and a limited set of operations — part of the 42 curriculum.
 
-The project involves two stacks, A and B, and uses predefined operations to manipulate these stacks.
+## 📚 About
 
-The program must output the sequence of operations required to achieve a sorted stack.
+**push_swap** is a project from 42 that challenges students to sort a stack of integers using a constrained set of operations and an auxiliary stack. The goal is to produce the most optimized and efficient sequence of operations possible.
 
-The challenge lies in finding an efficient way to sort the numbers while adhering to the constraints.
+This project is a deep dive into algorithm design, optimization strategies, and working with data structures like linked lists. It also pushes you to balance performance with strict coding constraints.
 
-/////////
+## 🧠 Objectives
 
-Allowed operations:
+- Implement a sorting algorithm using a restricted set of operations.
+- Optimize the number of moves required to sort a stack of up to 500 integers.
+  -  
+- Handle edge cases and invalid inputs gracefully.
+- Understand and implement chunking, indexing, and stack manipulation strategies.
 
-sa: Swap the first two elements of stack A.
+## ⚙️ How It Works
 
-sb: Swap the first two elements of stack B.
+The program takes integers as command-line arguments ( 1 2 3 or " 1 2 3" and outputs the operations needed to sort them in ascending order using only.
+The program was designed for up to 500 integers between INT_MAX and INT_MIN.
 
-ss: Perform sa and sb simultaneously.
 
-pa: Push the top element from stack B to stack A.
+### Allowed Operations to sort Stack A
 
-pb: Push the top element from stack A to stack B.
+- `sa`, `sb`, `ss` — swap top elements of stack A, B, or both
+- `pa`, `pb` — push top element from one stack to the other
+- `ra`, `rb`, `rr` — rotate stacks (first becomes last)
+- `rra`, `rrb`, `rrr` — reverse rotate stacks (last becomes first)
 
-ra: Rotate stack A (move the first element to the bottom).
+## ✅ Allowd functions
+read, write, malloc, free, exit
 
-rb: Rotate stack B (move the first element to the bottom).
+## ✅ Usage Example
 
-rr: Perform ra and rb simultaneously.
+```bash
+$ ./push_swap 3 2 1
+rra
+sa
 
-rra: Reverse rotate stack A (move the last element to the top).
+## 📊 Project Validation Criteria
 
-rrb: Reverse rotate stack B (move the last element to the top).
-
-rrr: Perform rra and rrb simultaneously.
-
-/////////
-
-The input must be a list of integers separated by spaces.
-
--The integers must be unique (no duplicates).
-
--Negative numbers are allowed.
-
--The program assumes valid input; invalid input (e.g., non-integer values) will result in an error.
-
-Example input:
-
-$./pushswap 7 2 1
-
-or
-
-$./pushswap "7 2 1" 
-
-The output represents the sequence of operations needed to sort stack A.
-
+For maximum project validation (100%) and eligibility for bonuses, you must:
+Sort 100 random numbers in fewer than 700 operations.
+Sort 500 random numbers in no more than 5500 operations.
+For minimal project validation (which implies a minimum grade of 80%), you can succeed with the following averages:
+100 numbers in under 1100 operations and 500 numbers in under 8500 operations.
+100 numbers in under 700 operations and 500 numbers in under 11500 operations.
