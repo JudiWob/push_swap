@@ -1,6 +1,8 @@
 # push_swap
 
-> 🎯 A sorting algorithm challenge using only two stacks and a limited set of operations — part of the 42 curriculum.
+⭐ Validated with 90%
+
+🧠 A sorting algorithm challenge using only two stacks and a limited set of operations — part of the 42 curriculum.
 
 ## 📚 About
 
@@ -8,7 +10,7 @@
 
 This project is a deep dive into algorithm design, optimization strategies, and working with data structures like linked lists. It also pushes you to balance performance with strict coding constraints.
 
-## 🧠 Objectives
+## 🎯 Objectives
 
 - Implement a sorting algorithm using a restricted set of operations.
 - Optimize the number of moves required to sort a stack of up to 500 integers.
