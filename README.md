@@ -38,12 +38,13 @@ read, write, malloc, free, exit
 $ ./push_swap 3 2 1
 rra
 sa
+```
 
 ## 📊 Project Validation Criteria
 
 For maximum project validation (100%) and eligibility for bonuses, you must:
-Sort 100 random numbers in fewer than 700 operations.
-Sort 500 random numbers in no more than 5500 operations.
+- Sort 100 random numbers in fewer than 700 operations.
+- Sort 500 random numbers in no more than 5500 operations.
 For minimal project validation (which implies a minimum grade of 80%), you can succeed with the following averages:
-100 numbers in under 1100 operations and 500 numbers in under 8500 operations.
-100 numbers in under 700 operations and 500 numbers in under 11500 operations.
+- 100 numbers in under 1100 operations and 500 numbers in under 8500 operations.
+- 100 numbers in under 700 operations and 500 numbers in under 11500 operations.
